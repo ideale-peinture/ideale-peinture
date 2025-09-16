@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de devis - Idéale Peinture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #FFD700 0%, #FF8C00 50%, #e3342f 100%);
+        }
+        .form-shadow {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .input-focus:focus {
+            border-color: #e3342f;
+            box-shadow: 0 0 0 3px rgba(227, 52, 47, 0.2);
+        }
+        .btn-primary {
+            background-color: #e3342f;
+        }
+        .btn-primary:hover {
+            background-color: #c5302c;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Header Idéale Peinture -->
+    <header class="bg-gradient-to-r from-[#FFD700] via-yellow-400 to-yellow-300 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-14 h-14 bg-white border-4 border-[#FFD700] flex items-center justify-center rounded-full shadow-lg overflow-hidden">
+                        <img src="images/logo.jpg" alt="Logo Idéale Peinture" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="flex flex-row items-end leading-tight">
+                        <span class="text-2xl font-extrabold text-gray-900 tracking-tight mr-2">Idéale</span>
+                        <span class="text-lg font-bold text-[#e3342f] tracking-wide">Peinture</span>
+                    </span>
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2 shadow-md">
+                    <a href="idéale peinture.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Accueil</a>
+                    <div class="dropdown relative group">
+                        <button class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100 flex items-center">
+                            Nos peintures <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu absolute hidden group-hover:block bg-white shadow-xl rounded-xl mt-2 w-64 z-50 animate-fade-in">
+                            <div class="grid grid-cols-2 gap-6 p-6">
+                                <div>
+                                    <h4 class="font-bold text-[#FFD700] mb-2">Intérieures</h4>
+                                    <ul class="space-y-1">
+                                        <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures mates</a></li>
+                                        <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures satinées</a></li>
+                                        <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures brillantes</a></li>
+                                        <li><a href="spéciale.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures spéciales</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#FFD700] mb-2">Extérieures</h4>
+                                    <ul class="space-y-1">
+                                        <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures façade</a></li>
+                                        <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures balcons/terrasses</a></li>
+                                        <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures anti-humidité</a></li>
+                                        <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures protection bois</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="idéale peinture.html#nos-realisations" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Réalisations</a>
+                    <a href="idéale peinture.html#a-propos" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">à propos</a>
+                    <a href="inspiration.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Conseils & inspiration</a>
+                    <a href="contact.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Contact</a>
+                    <a href="devenir distributeur.html" class="ml-2 px-4 py-2 bg-[#FFD700] text-[#e3342f] font-bold rounded-full shadow hover:bg-[#e3342f] hover:text-white transition duration-200">Devenir distributeur</a>
+                </nav>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-[#e3342f] bg-white rounded-full p-2 shadow hover:bg-yellow-100 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="mobile-menu md:hidden bg-white/90 rounded-xl shadow-lg mt-2 p-4 animate-fade-in">
+                <a href="idéale peinture.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Accueil</a>
+                <div class="relative">
+                    <button onclick="toggleSubMenu('paint-submenu')" class="w-full flex justify-between items-center px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">
+                        Nos peintures <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="paint-submenu" class="hidden pl-4">
+                        <a href="intérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Intérieures</a>
+                        <a href="extérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Extérieures</a>
+                        <a href="spéciale.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Spéciales</a>
+                    </div>
+                </div>
+                <a href="idéale peinture.html#nos-realisations" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Réalisations</a>
+                <a href="idéale peinture.html#a-propos" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">à propos</a>
+                <a href="inspiration.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Conseils & inspiration</a>
+                <a href="contact.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Contact</a>
+                <a href="devenir distributeur.html" class="block px-4 py-2 rounded-full font-bold bg-[#FFD700] text-[#e3342f] mt-2 shadow hover:bg-[#e3342f] hover:text-white transition">Devenir distributeur</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu principal de la page de devis -->
+    <div class="gradient-bg py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md mx-auto bg-white rounded-xl overflow-hidden form-shadow" data-aos="fade-up">
+            <div class="p-8">
+                <div class="flex justify-center mb-8">
+                    <div class="bg-yellow-100 p-4 rounded-full">
+                        <i data-feather="file-text" class="text-[#e3342f] w-8 h-8"></i>
+                    </div>
+                </div>
+                <h2 class="text-center text-3xl font-extrabold text-gray-900 mb-2">Demande de devis</h2>
+                <p class="text-center text-gray-600 mb-8">Remplissez ce formulaire pour obtenir un devis personnalisé selon vos besoins.</p>
+                
+                <form id="quoteForm" class="space-y-6">
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-gray-700">Nom complet <span class="text-red-500">*</span></label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input type="text" id="fullName" name="fullName" required class="input-focus py-3 px-4 block w-full border border-gray-300 rounded-md focus:outline-none transition duration-150 ease-in-out">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <i data-feather="user" class="h-5 w-5 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Adresse e-mail <span class="text-red-500">*</span></label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input type="email" id="email" name="email" required class="input-focus py-3 px-4 block w-full border border-gray-300 rounded-md focus:outline-none transition duration-150 ease-in-out">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <i data-feather="mail" class="h-5 w-5 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Numéro de téléphone</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input type="tel" id="phone" name="phone" class="input-focus py-3 px-4 block w-full border border-gray-300 rounded-md focus:outline-none transition duration-150 ease-in-out">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <i data-feather="phone" class="h-5 w-5 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="serviceType" class="block text-sm font-medium text-gray-700">Type de service souhaité <span class="text-red-500">*</span></label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <select id="serviceType" name="serviceType" required class="input-focus py-3 px-4 block w-full border border-gray-300 rounded-md focus:outline-none transition duration-150 ease-in-out appearance-none">
+                                <option value="" disabled selected>Sélectionnez une option</option>
+                                <option value="Peinture intérieure">Peinture intérieure</option>
+                                <option value="Peinture extérieure">Peinture extérieure</option>
+                                <option value="Rénovation complète">Rénovation complète</option>
+                                <option value="Conseil en couleur">Conseil en couleur</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <i data-feather="chevron-down" class="h-5 w-5 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="projectDescription" class="block text-sm font-medium text-gray-700">Description du projet <span class="text-red-500">*</span></label>
+                        <div class="mt-1">
+                            <textarea id="projectDescription" name="projectDescription" rows="4" required class="input-focus py-3 px-4 block w-full border border-gray-300 rounded-md focus:outline-none transition duration-150 ease-in-out"></textarea>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="projectDate" class="block text-sm font-medium text-gray-700">Date souhaitée pour le début du projet</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input type="date" id="projectDate" name="projectDate" class="input-focus py-3 px-4 block w-full border border-gray-300 rounded-md focus:outline-none transition duration-150 ease-in-out">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <i data-feather="calendar" class="h-5 w-5 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="budget" class="block text-sm font-medium text-gray-700">Budget estimé (FCFA)</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="text-gray-500 sm:text-sm">FCFA</span>
+                            </div>
+                            <input type="number" id="budget" name="budget" class="input-focus py-3 pl-14 pr-4 block w-full border border-gray-300 rounded-md focus:outline-none transition duration-150 ease-in-out">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <i data-feather="dollar-sign" class="h-5 w-5 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" id="submitBtn" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white btn-primary hover:bg-[#c5302c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#e3342f] transition duration-150 ease-in-out">
+                            <i data-feather="send" class="mr-2"></i> Envoyer la demande
+                        </button>
+                    </div>
+                </form>
+
+                <div id="confirmationMessage" class="hidden mt-8 p-4 bg-green-50 rounded-md">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i data-feather="check-circle" class="h-5 w-5 text-green-400"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-green-800">Merci pour votre demande ! Nous vous contacterons sous peu avec un devis personnalisé.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Idéale Peinture -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <div class="flex items-center mb-4 gap-3">
+                        <div class="w-14 h-14 bg-white border-4 border-[#FFD700] flex items-center justify-center rounded-full shadow-lg overflow-hidden">
+                            <img src="images/logo.jpg" alt="Logo Idéale Peinture" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <span class="flex flex-row items-end leading-tight">
+                            <span class="text-2xl font-extrabold text-white tracking-tight mr-2">Idéale</span>
+                            <span class="text-lg font-bold text-[#e3342f] tracking-wide">Peinture</span>
+                        </span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Votre spécialiste en peintures intérieures et extérieures depuis 2019.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-blue-600"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-pink-600"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-blue-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-green-600"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Nos produits</h3>
+                    <ul class="space-y-2">
+                        <li><a href="intérieur.html" class="text-gray-400 hover:text-white">Peintures Intérieures</a></li>
+                        <li><a href="extérieur.html" class="text-gray-400 hover:text-white">Peintures Extérieures</a></li>
+                        <li><a href="spéciale.html" class="text-gray-400 hover:text-white">Peintures Spéciales</a></li>
+                        <li><a href="marques.html" class="text-gray-400 hover:text-white">Marques distribuées</a></li>
+                        <li><a href="nouveautés.html" class="text-gray-400 hover:text-white">Nouveautés</a></li>
+                        <li><a href="promotions.html" class="text-gray-400 hover:text-white">Promotions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Nos services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="conseil-couleur.html" class="text-gray-400 hover:text-white">Conseil couleur</a></li>
+                        <li><a href="devis.html" class="text-gray-400 hover:text-white">Devis à domicile</a></li>
+                        <li><a href="livraison.html" class="text-gray-400 hover:text-white">Livraison express</a></li>
+                        <li><a href="application-pro.html" class="text-gray-400 hover:text-white">Application pro</a></li>
+                        <li><a href="rénovation.html" class="text-gray-400 hover:text-white">Rénovation complète</a></li>
+                        <li><a href="sav.html" class="text-gray-400 hover:text-white">Service après-vente</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Informations</h3>
+                    <ul class="space-y-2">
+                        <li><a href="a-propos.html" class="text-gray-400 hover:text-white">à propos</a></li>
+                        <li><a href="realisations.html" class="text-gray-400 hover:text-white">Nos réalisations</a></li>
+                        <li><a href="conseils.html" class="text-gray-400 hover:text-white">Conseils & inspiration</a></li>
+                        <li><a href="devenir-distributeur.html" class="text-gray-400 hover:text-white">Devenir distributeur</a></li>
+                        <li><a href="mentions-legales.html" class="text-gray-400 hover:text-white">Mentions légales</a></li>
+                        <li><a href="confidentialite.html" class="text-gray-400 hover:text-white">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Idéale Peinture. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-cc-visa text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-cc-mastercard text-2xl"></i></a>
+                    <!-- Remplacement PayPal et Amazon Pay par Yass Movv Money et Western Union -->
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <img src="images/yas.png" alt="Yass Movv Money" class="h-7 w-auto inline-block" title="Yass Movv Money">
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <img src="images/wester.png" alt="Western Union" class="h-7 w-auto inline-block" title="Western Union">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+        feather.replace();
+        
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i data-feather="loader" class="animate-spin mr-2"></i> Envoi en cours...';
+            feather.replace();
+            
+            // Simulate form submission
+            setTimeout(function() {
+                document.getElementById('quoteForm').classList.add('hidden');
+                document.getElementById('confirmationMessage').classList.remove('hidden');
+                
+                // Reset form after showing confirmation
+                setTimeout(function() {
+                    document.getElementById('quoteForm').reset();
+                    document.getElementById('quoteForm').classList.remove('hidden');
+                    document.getElementById('confirmationMessage').classList.add('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i data-feather="send" class="mr-2"></i> Envoyer la demande';
+                    feather.replace();
+                }, 5000);
+            }, 1500);
+        });
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function toggleSubMenu(id) {
+            const submenu = document.getElementById(id);
+            submenu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
