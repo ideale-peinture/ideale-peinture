@@ -163,80 +163,248 @@
             </div>
         </section>
 
-        <section class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <!-- Formulaire de contact -->
-                        <div class="bg-white rounded-2xl shadow-soft-lg p-8 contact-card">
-                            <div class="mb-8">
-                                <h2 class="text-3xl font-bold text-gray-800 mb-4">Envoyez-nous un message</h2>
-                                <p class="text-gray-600">Décrivez-nous votre projet et nous vous recontacterons dans les plus brefs délais.</p>
-                            </div>
-                            
-                            <form class="space-y-6" id="contact-form">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label for="prenom" class="block text-sm font-medium text-gray-700 mb-2">Prénom *</label>
-                                        <input type="text" id="prenom" name="prenom" required 
-                                               class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none transition duration-300">
-                                    </div>
-                                    <div>
-                                        <label for="nom" class="block text-sm font-medium text-gray-700 mb-2">Nom *</label>
-                                        <input type="text" id="nom" name="nom" required 
-                                               class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none transition duration-300">
-                                    </div>
-                                </div>
-                                
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                                        <input type="email" id="email" name="email" required 
-                                               class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none transition duration-300">
-                                    </div>
-                                    <div>
-                                        <label for="telephone" class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
-                                        <input type="tel" id="telephone" name="telephone" 
-                                               class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none transition duration-300">
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <label for="sujet" class="block text-sm font-medium text-gray-700 mb-2">Type de demande *</label>
-                                    <select id="sujet" name="sujet" required
-                                            class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none transition duration-300">
-                                        <option value="">Sélectionnez un type de demande</option>
-                                        <option value="devis">Demande de devis</option>
-                                        <option value="conseil">Conseil couleur</option>
-                                        <option value="renseignement">Renseignement produit</option>
-                                        <option value="distributeur">Devenir distributeur</option>
-                                        <option value="sav">Service après-vente</option>
-                                        <option value="autre">Autre</option>
-                                    </select>
-                                </div>
-                                
-                                <div>
-                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                                    <textarea id="message" name="message" rows="6" required 
-                                              placeholder="Décrivez votre projet, la surface à peindre, vos préférences de couleurs..."
-                                              class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none transition duration-300 resize-none"></textarea>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <input type="checkbox" id="rgpd" name="rgpd" required 
-                                           class="w-5 h-5 text-ideale-gold bg-gray-100 border-gray-300 rounded focus:ring-ideale-gold mt-1">
-                                    <label for="rgpd" class="ml-3 text-sm text-gray-600">
-                                        J'accepte que mes données soient utilisées pour me recontacter concernant ma demande. *
-                                    </label>
-                                </div>
-                                
-                                <button type="submit" 
-                                        class="w-full bg-gradient-to-r from-ideale-gold to-yellow-400 hover:from-ideale-red hover:to-red-500 text-gray-900 hover:text-white font-bold py-4 px-6 rounded-lg transition duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                    <i class="fas fa-paper-plane mr-3"></i> 
-                                    <span>Envoyer le message</span>
-                                </button>
-                            </form>
-                        </div>
+       
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #4a6cf7;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .form-container {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #4a6cf7;
+            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.2);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+            margin-top: 4px;
+        }
+        
+        .checkbox-group label {
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #4a6cf7;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        button:hover {
+            background: #3a5cd8;
+        }
+        
+        .required {
+            color: #ff4d4d;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #28a745;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                border-radius: 0;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Contactez-nous</h1>
+        </div>
+        
+        <div class="form-container">
+            <form action="https://formsubmit.co/hermannbongo2@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Nouveau message de contact">
+                <input type="hidden" name="_autoresponse" value="Merci pour votre message. Nous vous répondrons bientôt !">
+                
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="prenom">Prénom <span class="required">*</span></label>
+                        <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nom">Nom <span class="required">*</span></label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                </div>
+                
+                <div class="grid">
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telephone">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sujet">Type de demande <span class="required">*</span></label>
+                    <select id="sujet" name="sujet" required>
+                        <option value="">Sélectionnez un type de demande</option>
+                        <option value="devis">Demande de devis</option>
+                        <option value="conseil">Conseil couleur</option>
+                        <option value="renseignement">Renseignement produit</option>
+                        <option value="distributeur">Devenir distributeur</option>
+                        <option value="sav">Service après-vente</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message <span class="required">*</span></label>
+                    <textarea id="message" name="message" placeholder="Décrivez votre projet, la surface à peindre, vos préférences de couleurs..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="rgpd" name="rgpd" required>
+                        <label for="rgpd">J'accepte que mes données soient utilisées pour me recontacter concernant ma demande. <span class="required">*</span></label>
+                    </div>
+                </div>
+                
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i> 
+                    <span>Envoyer le message</span>
+                </button>
+                
+                <div class="success-message" id="successMessage">
+                    Merci pour votre message ! Nous vous répondrons bientôt.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simuler l'envoi du formulaire
+            const form = this;
+            
+            // Afficher le message de succès
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Réinitialiser le formulaire après 2 secondes
+            setTimeout(function() {
+                form.reset();
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+            
+            // En production, vous enleveriez le preventDefault() et laisseriez le formulaire s'envoyer normalement
+            // form.submit();
+        });
+    </script>
 
                         <!-- Informations de contact -->
                         <div class="space-y-6">
