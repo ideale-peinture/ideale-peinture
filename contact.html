@@ -239,95 +239,82 @@
                 <div class="max-w-6xl mx-auto">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         
-                        <!-- Formulaire de contact -->
-                        <div class="bg-white rounded-2xl shadow-soft-lg p-8 contact-card">
-                            <h2 class="text-3xl font-bold gradient-text mb-2">Envoyez-nous un message</h2>
-                            <p class="text-gray-600 mb-8">Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.</p>
-                            
-                            <form id="contactForm">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                    <div class="form-group">
-                                        <label for="prenom" class="block text-sm font-semibold text-gray-700 mb-2">
-                                            Prénom <span class="required">*</span>
-                                        </label>
-                                        <input type="text" id="prenom" name="prenom" required class="form-input" placeholder="Votre prénom">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nom" class="block text-sm font-semibold text-gray-700 mb-2">
-                                            Nom <span class="required">*</span>
-                                        </label>
-                                        <input type="text" id="nom" name="nom" required class="form-input" placeholder="Votre nom">
-                                    </div>
-                                </div>
-                                
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                    <div class="form-group">
-                                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
-                                            Email <span class="required">*</span>
-                                        </label>
-                                        <input type="email" id="email" name="email" required class="form-input" placeholder="votre@email.com">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="telephone" class="block text-sm font-semibold text-gray-700 mb-2">
-                                            Téléphone
-                                        </label>
-                                        <input type="tel" id="telephone" name="telephone" class="form-input" placeholder="+228 XX XX XX XX">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group mb-6">
-                                    <label for="sujet" class="block text-sm font-semibold text-gray-700 mb-2">
-                                        Type de demande <span class="required">*</span>
-                                    </label>
-                                    <select id="sujet" name="sujet" required class="form-input">
-                                        <option value="">Sélectionnez un type de demande</option>
-                                        <option value="devis">Demande de devis</option>
-                                        <option value="conseil">Conseil couleur</option>
-                                        <option value="renseignement">Renseignement produit</option>
-                                        <option value="distributeur">Devenir distributeur</option>
-                                        <option value="sav">Service après-vente</option>
-                                        <option value="autre">Autre</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="form-group mb-6">
-                                    <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
-                                        Message <span class="required">*</span>
-                                    </label>
-                                    <textarea id="message" name="message" rows="6" required class="form-input" placeholder="Décrivez votre projet, la surface à peindre, vos préférences de couleurs..."></textarea>
-                                </div>
-                                
-                                <div class="form-group mb-6">
-                                    <div class="checkbox-group">
-                                        <input type="checkbox" id="rgpd" name="rgpd" required class="w-4 h-4 text-ideale-gold border-gray-300 rounded focus:ring-ideale-gold">
-                                        <label for="rgpd" class="text-sm text-gray-700">
-                                            J'accepte que mes données soient utilisées pour me recontacter concernant ma demande. <span class="required">*</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                
-                                <button type="submit" class="w-full bg-gradient-to-r from-ideale-gold to-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-lg hover:from-ideale-red hover:to-red-500 hover:text-white transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                    <span class="btn-text flex items-center justify-center">
-                                        <i class="fas fa-paper-plane mr-3"></i>
-                                        Envoyer le message
-                                    </span>
-                                    <span class="btn-loading flex items-center justify-center">
-                                        <i class="fas fa-spinner fa-spin mr-3"></i>
-                                        Envoi en cours...
-                                    </span>
-                                </button>
-                                
-                                <div class="success-message" id="successMessage">
-                                    <i class="fas fa-check-circle mr-2"></i>
-                                    Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.
-                                </div>
-                                
-                                <div class="error-message" id="errorMessage">
-                                    <i class="fas fa-exclamation-triangle mr-2"></i>
-                                    Une erreur est survenue. Veuillez réessayer ou nous contacter directement.
-                                </div>
-                            </form>
-                        </div>
+                        <!-- Formulaire de contact relié à Formspree -->
+<div class="bg-white rounded-2xl shadow-soft-lg p-8 contact-card">
+    <h2 class="text-3xl font-bold gradient-text mb-2">Envoyez-nous un message</h2>
+    <p class="text-gray-600 mb-8">Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.</p>
+    
+    <form action="https://getform.io/f/bwnykqga" method="POST">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="form-group">
+                <label for="prenom" class="block text-sm font-semibold text-gray-700 mb-2">
+                    Prénom <span class="required">*</span>
+                </label>
+                <input type="text" id="prenom" name="prenom" required class="form-input" placeholder="Votre prénom">
+            </div>
+            <div class="form-group">
+                <label for="nom" class="block text-sm font-semibold text-gray-700 mb-2">
+                    Nom <span class="required">*</span>
+                </label>
+                <input type="text" id="nom" name="nom" required class="form-input" placeholder="Votre nom">
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="form-group">
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                    Email <span class="required">*</span>
+                </label>
+                <input type="email" id="email" name="email" required class="form-input" placeholder="votre@email.com">
+            </div>
+            <div class="form-group">
+                <label for="telephone" class="block text-sm font-semibold text-gray-700 mb-2">
+                    Téléphone
+                </label>
+                <input type="tel" id="telephone" name="telephone" class="form-input" placeholder="+228 XX XX XX XX">
+            </div>
+        </div>
+        
+        <div class="form-group mb-6">
+            <label for="sujet" class="block text-sm font-semibold text-gray-700 mb-2">
+                Type de demande <span class="required">*</span>
+            </label>
+            <select id="sujet" name="sujet" required class="form-input">
+                <option value="">Sélectionnez un type de demande</option>
+                <option value="devis">Demande de devis</option>
+                <option value="conseil">Conseil couleur</option>
+                <option value="renseignement">Renseignement produit</option>
+                <option value="distributeur">Devenir distributeur</option>
+                <option value="sav">Service après-vente</option>
+                <option value="autre">Autre</option>
+            </select>
+        </div>
+        
+        <div class="form-group mb-6">
+            <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
+                Message <span class="required">*</span>
+            </label>
+            <textarea id="message" name="message" rows="6" required class="form-input" placeholder="Décrivez votre projet, la surface à peindre, vos préférences de couleurs..."></textarea>
+        </div>
+        
+        <div class="form-group mb-6">
+            <div class="checkbox-group">
+                <input type="checkbox" id="rgpd" name="rgpd" required class="w-4 h-4 text-ideale-gold border-gray-300 rounded focus:ring-ideale-gold">
+                <label for="rgpd" class="text-sm text-gray-700">
+                    J'accepte que mes données soient utilisées pour me recontacter concernant ma demande. <span class="required">*</span>
+                </label>
+            </div>
+        </div>
+        
+        <button type="submit" class="w-full bg-gradient-to-r from-ideale-gold to-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-lg hover:from-ideale-red hover:to-red-500 hover:text-white transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <span class="btn-text flex items-center justify-center">
+                <i class="fas fa-paper-plane mr-3"></i>
+                Envoyer le message
+            </span>
+        </button>
+    </form>
+</div>
+
 
                         <!-- Informations de contact -->
                         <div class="space-y-8">
