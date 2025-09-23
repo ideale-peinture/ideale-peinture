@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <style>
@@ -152,7 +151,8 @@
                 <h2 class="text-center text-3xl font-extrabold text-gray-900 mb-2">Demande de devis</h2>
                 <p class="text-center text-gray-600 mb-8">Remplissez ce formulaire pour obtenir un devis personnalisé selon vos besoins.</p>
                 
-                <form id="quoteForm" class="space-y-6">
+                <!-- Remplacez l'ID du formulaire par celui que vous avez obtenu sur Formspree -->
+                <form id="quoteForm" action="https://getform.io/f/bwnykqga" method="POST" class="space-y-6">
                     <div>
                         <label for="fullName" class="block text-sm font-medium text-gray-700">Nom complet <span class="text-red-500">*</span></label>
                         <div class="mt-1 relative rounded-md shadow-sm">
@@ -332,11 +332,6 @@
     </footer>
 
     <script>
-        // Configuration EmailJS
-        (function(){
-            emailjs.init("2JR4FO4wRDBj5pnCp"); // Remplacez par votre clé publique
-        })();
-
         // Initialisation
         AOS.init();
         feather.replace();
@@ -347,6 +342,7 @@
         const errorText = document.getElementById('errorText');
         const submitBtn = document.getElementById('submitBtn');
 
+        // Gestion de la soumission du formulaire
         quoteForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -385,84 +381,40 @@
             // État de chargement
             quoteForm.classList.add('form-loading');
 
-            // Récupération des données du formulaire
+            // Soumission du formulaire via Formspree
             const formData = new FormData(quoteForm);
-            const projectDate = formData.get('projectDate') || 'Non précisée';
-            const budget = formData.get('budget') ? formData.get('budget') + ' FCFA' : 'Non précisé';
-
-            const templateParams = {
-                type_demande: 'Demande de devis peinture',
-                client_name: formData.get('fullName'),
-                from_email: formData.get('email'),
-                phone: formData.get('phone') || 'Non renseigné',
-                service_type: formData.get('serviceType'),
-                project_description: formData.get('projectDescription'),
-                project_date: projectDate,
-                budget: budget,
-                to_email: 'hermannbongo2@gmail.com'
-            };
-
-            // Envoi via EmailJS avec fallback
-            emailjs.send('service_ideale', 'template_devis', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
+            
+            // Utilisation de fetch pour envoyer le formulaire
+            fetch(quoteForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Succès
                     successMessage.style.display = 'block';
                     quoteForm.reset();
                     feather.replace(); // Recharger les icônes après reset
                     
                     // Scroll vers le message de succès
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    
-                    // Fallback: ouverture du client email par défaut
-                    const subject = encodeURIComponent(`[Idéale Peinture] Demande de devis - ${templateParams.client_name}`);
-                    const body = encodeURIComponent(`
-Nouvelle demande de devis depuis le site Idéale Peinture
-
-Client: ${templateParams.client_name}
-Email: ${templateParams.from_email}
-Téléphone: ${templateParams.phone}
-Service souhaité: ${templateParams.service_type}
-
-Description du projet:
-${templateParams.project_description}
-
-Date souhaitée: ${templateParams.project_date}
-Budget estimé: ${templateParams.budget}
-
----
-Envoyé depuis le formulaire de devis du site Idéale Peinture
-                    `.trim());
-                    
-                    const mailtoLink = `mailto:hermannbongo2@gmail.com?subject=${subject}&body=${body}`;
-                    
-                    // Tentative d'ouverture du client email
-                    const emailWindow = window.open(mailtoLink);
-                    
-                    // Message d'information pour l'utilisateur
-                    errorMessage.innerHTML = `
-                        <div class="flex flex-col items-center space-y-3">
-                            <div class="flex items-center">
-                                <i class="fas fa-info-circle mr-2"></i>
-                                Ouverture de votre client email en cours...
-                            </div>
-                            <a href="${mailtoLink}" class="bg-white text-red-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition duration-200">
-                                <i class="fas fa-envelope mr-2"></i>
-                                Cliquer ici si rien ne se passe
-                            </a>
-                        </div>
-                    `;
-                    errorMessage.style.display = 'block';
-                    errorMessage.style.backgroundColor = '#3b82f6';
-                    
-                    quoteForm.reset();
-                    feather.replace();
-                })
-                .finally(function() {
-                    // Restaurer l'état du formulaire
-                    quoteForm.classList.remove('form-loading');
-                });
+                } else {
+                    // Erreur
+                    throw new Error('Erreur lors de l\'envoi du formulaire');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                errorText.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement.';
+                errorMessage.style.display = 'block';
+            })
+            .finally(() => {
+                // Restaurer l'état du formulaire
+                quoteForm.classList.remove('form-loading');
+            });
         });
 
         // Validation en temps réel
