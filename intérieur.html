@@ -53,14 +53,19 @@
             background: radial-gradient(circle at 10% 20%, rgba(248,249,250,0.8) 0%, rgba(255,255,255,1) 100%);
         }
         
-        /* Style pour les images de remplacement */
-        .placeholder-image {
-            background-color: #e5e7eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7280;
-            font-weight: 500;
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .image-container {
+            overflow: hidden;
         }
     </style>
 </head>
@@ -70,8 +75,7 @@
             <div class="flex items-center justify-between md:justify-center py-4">
                 <div class="flex items-center gap-3 md:gap-5 md:mx-auto">
                     <div class="flex items-center">
-                        <!-- Image de logo corrigée -->
-                        <img src="https://via.placeholder.com/150x60?text=Idéale+Peinture" alt="Idéale Peinture" class="h-12 w-auto">
+                        <img src="logo.jpg" alt="Idéale Peinture" class="h-12 w-auto">
                     </div>
                     
                     <nav class="hidden md:flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2 shadow-md">
@@ -126,7 +130,6 @@
                         <a href="intérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Intérieures</a>
                         <a href="extérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Extérieures</a>
                         <a href="spéciale.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Spéciales</a>
-                
                     </div>
                 </div>
                 <a href="index.html#nos-realisations" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Réalisations</a>
@@ -145,10 +148,12 @@
         </section>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Peinture Mate -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
-                <!-- Image corrigée avec placeholder -->
-                <div class="w-full h-48 placeholder-image">
-                    <span>Peintures mates</span>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Peinture mate pour intérieur" 
+                         class="product-image">
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Peintures Mates</h3>
@@ -159,10 +164,12 @@
                 </div>
             </div>
 
+            <!-- Peinture Satinée -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                <!-- Image corrigée avec placeholder -->
-                <div class="w-full h-48 placeholder-image">
-                    <span>Peintures satinées</span>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Peinture satinée pour salon" 
+                         class="product-image">
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Peintures Satinées</h3>
@@ -173,10 +180,12 @@
                 </div>
             </div>
 
+            <!-- Peinture Brillante -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="300">
-                <!-- Image corrigée avec placeholder -->
-                <div class="w-full h-48 placeholder-image">
-                    <span>Peintures brillantes</span>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Peinture brillante pour salle de bain" 
+                         class="product-image">
                 </div>
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Peintures Brillantes</h3>
@@ -187,6 +196,58 @@
                 </div>
             </div>
         </div>
+
+        <!-- Section supplémentaire avec plus d'images -->
+        <section class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Nos finitions en détail</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Application de peinture mate" 
+                         class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">La finition Mate</h3>
+                        <p class="text-gray-600">Parfaite pour créer une ambiance chaleureuse et intime. Absorbe la lumière et masque parfaitement les imperfections des murs.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Effet satiné dans une pièce" 
+                         class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">La finition Satinée</h3>
+                        <p class="text-gray-600">Offre un équilibre parfait entre élégance et praticité. Facile d'entretien tout en apportant une touche de luminosité.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galerie d'inspiration -->
+        <section class="mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Inspirations déco</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7eded102c7d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Salon moderne" 
+                         class="w-full h-40 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Chambre contemporaine" 
+                         class="w-full h-40 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Cuisine élégante" 
+                         class="w-full h-40 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Salle à manger lumineuse" 
+                         class="w-full h-40 object-cover hover:scale-105 transition duration-300">
+                </div>
+            </div>
+        </section>
     </main>
 
     <div id="order-choice-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 transition-opacity duration-300">
@@ -241,8 +302,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center mb-4">
-                        <!-- Image de logo corrigée -->
-                        <img src="https://via.placeholder.com/150x60?text=Idéale+Peinture" alt="Idéale Peinture" class="h-12 w-auto">
+                        <img src="logo.jpg" alt="Idéale Peinture" class="h-12 w-auto">
                     </div>
                     <p class="text-gray-400 mb-4">Votre spécialiste en peintures intérieures et extérieures depuis 2019.</p>
                     <div class="flex space-x-4">
