@@ -235,16 +235,43 @@
                 <i class="fas fa-times text-2xl"></i>
             </button>
             
-            <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">Passer ma commande</h3>
-            <p class="text-center text-gray-600 mb-8">Choisissez votre méthode de contact préférée.</p>
-            
-            <div class="space-y-4">
-                <a id="modal-whatsapp-button" href="#" target="_blank" class="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
-                    <i class="fab fa-whatsapp mr-3 text-xl"></i> Continuer sur WhatsApp
-                </a>
-                <a id="modal-email-button" href="#" class="flex items-center justify-center w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
-                    <i class="fas fa-envelope mr-3 text-xl"></i> Continuer par E-mail
-                </a>
+            <div id="choice-view">
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">Passer ma commande</h3>
+                <p class="text-center text-gray-600 mb-8">Choisissez votre méthode de contact préférée.</p>
+                
+                <div class="space-y-4">
+                    <a id="modal-whatsapp-button" href="#" target="_blank" class="flex items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
+                        <i class="fab fa-whatsapp mr-3 text-xl"></i> Continuer sur WhatsApp
+                    </a>
+                    <button id="modal-email-choice-button" class="flex items-center justify-center w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
+                        <i class="fas fa-envelope mr-3 text-xl"></i> Continuer par E-mail
+                    </button>
+                </div>
+            </div>
+
+            <div id="email-form-view" class="hidden">
+                <button id="back-to-choice-button" class="absolute top-4 left-4 text-gray-400 hover:text-gray-700 transition-colors">
+                    <i class="fas fa-arrow-left text-xl"></i>
+                </button>
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-6">Commander par E-mail</h3>
+                
+                <form action="https://getform.io/f/bwnykqga" method="POST" class="space-y-4">
+                    <input type="hidden" id="form-product-name" name="Produit">
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Votre E-mail</label>
+                        <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message (optionnel)</label>
+                        <textarea name="message" id="message" rows="4" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Ajoutez des détails sur votre commande ici..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
+                        Envoyer la demande
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -351,19 +378,33 @@
             submenu.classList.toggle('hidden');
         }
 
-        // --- NOUVEAU SCRIPT POUR LA FENÊTRE MODALE ---
+        // --- SCRIPT MODIFIÉ POUR LA FENÊTRE MODALE AVEC FORMSPREE ---
 
-        // Constantes et variables
         const whatsappNumber = '22893807047';
-        const emailAddress = 'commandes@idealepeinture.com'; // Remplacez par votre email
+        
+        // Éléments de la modale
         const orderModal = document.getElementById('order-choice-modal');
         const closeModalButton = document.getElementById('close-modal-button');
-        const modalWhatsappButton = document.getElementById('modal-whatsapp-button');
-        const modalEmailButton = document.getElementById('modal-email-button');
+        
+        // Vues de la modale
+        const choiceView = document.getElementById('choice-view');
+        const emailFormView = document.getElementById('email-form-view');
 
-        // Fonction pour fermer la modale
+        // Boutons et champs
+        const modalWhatsappButton = document.getElementById('modal-whatsapp-button');
+        const emailChoiceButton = document.getElementById('modal-email-choice-button');
+        const backToChoiceButton = document.getElementById('back-to-choice-button');
+        const hiddenProductInput = document.getElementById('form-product-name');
+        const formMessageTextarea = document.getElementById('message');
+
+        // Fonction pour réinitialiser et fermer la modale
         function closeModal() {
             orderModal.classList.add('hidden');
+            // S'assurer que la vue par défaut est affichée la prochaine fois
+            setTimeout(() => {
+                emailFormView.classList.add('hidden');
+                choiceView.classList.remove('hidden');
+            }, 300); // Délai pour la transition
         }
 
         // Ouvrir la modale au clic sur un bouton "Commander"
@@ -372,7 +413,7 @@
                 event.preventDefault();
                 const productName = button.dataset.product || 'une peinture Idéale Peinture';
                 
-                // Sauvegarder le nom du produit sur la modale pour le réutiliser
+                // Sauvegarder le nom du produit sur la modale
                 orderModal.dataset.product = productName;
                 
                 // Afficher la modale
@@ -380,7 +421,7 @@
             });
         });
 
-        // Action du bouton WhatsApp dans la modale
+        // Action du bouton WhatsApp
         modalWhatsappButton.addEventListener('click', event => {
             event.preventDefault();
             const productName = orderModal.dataset.product;
@@ -390,15 +431,25 @@
             closeModal();
         });
 
-        // Action du bouton E-mail dans la modale
-        modalEmailButton.addEventListener('click', event => {
-            event.preventDefault();
+        // Action pour passer à la vue formulaire
+        emailChoiceButton.addEventListener('click', () => {
             const productName = orderModal.dataset.product;
-            const subject = encodeURIComponent(`Demande de commande pour: ${productName}`);
-            const body = encodeURIComponent(`Bonjour,\n\nJe souhaiterais passer commande pour le produit suivant : ${productName}.\n\nMerci de me recontacter.\n\nCordialement,`);
-            const mailtoUrl = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
-            window.location.href = mailtoUrl;
-            closeModal();
+
+            // Mettre à jour le champ caché du formulaire
+            hiddenProductInput.value = productName;
+            
+            // Pré-remplir le message
+            formMessageTextarea.value = `Bonjour, je souhaiterais passer commande pour le produit : ${productName}.`;
+
+            // Changer de vue
+            choiceView.classList.add('hidden');
+            emailFormVixew.classList.remove('hidden');
+        });
+
+        // Action pour revenir à la vue de choix
+        backToChoiceButton.addEventListener('click', () => {
+            emailFormView.classList.add('hidden');
+            choiceView.classList.remove('hidden');
         });
 
         // Fermer la modale en cliquant sur le bouton X ou à l'extérieur
