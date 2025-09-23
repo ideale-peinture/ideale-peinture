@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idéale Peinture - Nos Peintures Extérieures</title>
+    <title>Idéale Peinture - Nos Peintures spéciales</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -70,6 +70,80 @@
         .image-container {
             overflow: hidden;
             height: 300px;
+        }
+
+        /* Styles pour la modale */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        .modal-close:hover {
+            color: #374151;
+        }
+
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+        }
+
+        .btn-email {
+            background: #374151;
+            color: white;
+        }
+
+        .btn-email:hover {
+            background: #1f2937;
+        }
+
+        .btn-back {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: #4b5563;
         }
     </style>
 </head>
@@ -159,7 +233,7 @@
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Peintures façades</h3>
                     <p class="text-gray-600 mb-4">La peinture façade protège durablement vos murs extérieurs tout en leur offrant une finition esthétique résistante aux intempéries et aux UV.</p>
-                    <a href="#" data-product="Peintures façades" class="whatsapp-order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out w-full">
+                    <a href="#" data-product="Peintures façades" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out w-full">
                         Commander
                     </a>
                 </div>
@@ -172,7 +246,7 @@
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Peintures balcon/terrasse</h3>
                     <p class="text-gray-600 mb-4">Transformez votre balcon ou terrasse en un espace élégant et durable grâce à une peinture haute performance qui résiste aux intempéries, aux UV et à l'humidité.</p>
-                    <a href="#" data-product="Peintures balcon/terrasse" class="whatsapp-order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out w-full">
+                    <a href="#" data-product="Peintures balcon/terrasse" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out w-full">
                         Commander
                     </a>
                 </div>
@@ -185,7 +259,7 @@
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Peintures anti-humidité</h3>
                     <p class="text-gray-600 mb-4">Elle s'applique comme une peinture classique, en intérieur ou extérieur, et peut servir de sous-couche ou de finition décorative, selon le produit choisi.</p>
-                    <a href="#" data-product="Peintures anti-humidité" class="whatsapp-order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out w-full">
+                    <a href="#" data-product="Peintures anti-humidité" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out w-full">
                         Commander
                     </a>
                 </div>
@@ -198,13 +272,76 @@
                 <div class="p-6">
                     <h3 class="text-xl font-semibold mb-2">Peintures protection bois</h3>
                     <p class="text-gray-600 mb-4">Peintures de conservation : anti-humidité, isolantes, etc. Protégez et embellissez vos structures en bois extérieures.</p>
-                    <a href="#" data-product="Peintures protection bois" class="whatsapp-order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out w-full">
+                    <a href="#" data-product="Peintures protection bois" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out w-full">
                         Commander
                     </a>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Modale de commande -->
+    <div id="orderModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            
+            <!-- Vue de choix -->
+            <div id="choiceView" class="view active">
+                <h2 class="text-2xl font-bold text-center mb-4">Passer ma commande</h2>
+                <p class="text-center text-gray-600 mb-6">Choisissez votre méthode de contact préférée</p>
+                
+                <div class="space-y-4">
+                    <button id="whatsappBtn" class="w-full py-3 px-4 rounded-lg btn-whatsapp flex items-center justify-center transition duration-300">
+                        <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                        Continuer sur WhatsApp
+                    </button>
+                    
+                    <button id="emailBtn" class="w-full py-3 px-4 rounded-lg btn-email flex items-center justify-center transition duration-300">
+                        <i class="fas fa-envelope mr-3 text-xl"></i>
+                        Continuer par Email
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Vue formulaire email -->
+            <div id="emailView" class="view">
+                <button id="backBtn" class="mb-4 py-2 px-4 rounded-lg btn-back flex items-center transition duration-300">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Retour
+                </button>
+                
+                <h2 class="text-2xl font-bold text-center mb-4">Commander par Email</h2>
+                
+                <form id="emailForm" action="https://getform.io/f/bwnykqga" method="POST">
+                    <input type="hidden" id="productName" name="product" value="">
+                    
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Votre nom</label>
+                        <input type="text" id="name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Votre email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Votre téléphone</label>
+                        <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message supplémentaire</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Détails supplémentaires sur votre commande..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300">
+                        Envoyer la demande
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
@@ -304,25 +441,87 @@
             }
         }
 
-        // Logique pour les boutons de commande WhatsApp
+        // Configuration de la modale de commande
         const whatsappNumber = '22893807047';
-        document.querySelectorAll('.whatsapp-order-button').forEach(button => {
-            button.addEventListener('click', event => {
-                // Empêche le lien de suivre son href="#"
-                event.preventDefault();
-                
-                // Récupère le nom du produit depuis l'attribut data-product
-                const productName = button.dataset.product || 'une peinture Idéale Peinture';
-                
-                // Crée le message personnalisé
-                const message = encodeURIComponent(`Bonjour, je souhaite commander ${productName} via votre site Idéale Peinture.`);
-                
-                // Construit l'URL WhatsApp
-                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
-                
-                // Ouvre le lien dans un nouvel onglet
-                window.open(whatsappUrl, '_blank');
+        const orderModal = document.getElementById('orderModal');
+        const closeModal = document.getElementById('closeModal');
+        const choiceView = document.getElementById('choiceView');
+        const emailView = document.getElementById('emailView');
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        const emailBtn = document.getElementById('emailBtn');
+        const backBtn = document.getElementById('backBtn');
+        const emailForm = document.getElementById('emailForm');
+        const productNameInput = document.getElementById('productName');
+
+        let currentProduct = '';
+
+        // Ouvrir la modale au clic sur les boutons Commander
+        document.querySelectorAll('.order-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentProduct = button.getAttribute('data-product');
+                showModal();
             });
+        });
+
+        // Fonction pour afficher la modale
+        function showModal() {
+            orderModal.style.display = 'flex';
+            showView('choiceView');
+        }
+
+        // Fonction pour fermer la modale
+        function closeModalFunc() {
+            orderModal.style.display = 'none';
+        }
+
+        // Fonction pour changer de vue
+        function showView(viewName) {
+            // Cacher toutes les vues
+            document.querySelectorAll('.view').forEach(view => {
+                view.classList.remove('active');
+            });
+            
+            // Afficher la vue demandée
+            document.getElementById(viewName).classList.add('active');
+        }
+
+        // Événements des boutons
+        closeModal.addEventListener('click', closeModalFunc);
+        
+        whatsappBtn.addEventListener('click', () => {
+            const message = encodeURIComponent(`Bonjour, je souhaite commander ${currentProduct} via votre site Idéale Peinture.`);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+            closeModalFunc();
+        });
+        
+        emailBtn.addEventListener('click', () => {
+            productNameInput.value = currentProduct;
+            showView('emailView');
+        });
+        
+        backBtn.addEventListener('click', () => {
+            showView('choiceView');
+        });
+
+        // Fermer la modale en cliquant à l'extérieur
+        orderModal.addEventListener('click', (e) => {
+            if (e.target === orderModal) {
+                closeModalFunc();
+            }
+        });
+
+        // Gestion de la soumission du formulaire
+        emailForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Afficher un message de confirmation
+            alert('Votre demande a été envoyée avec succès ! Nous vous contacterons rapidement.');
+            
+            // Réinitialiser le formulaire et fermer la modale
+            emailForm.reset();
+            closeModalFunc();
         });
     </script>
 </body>
