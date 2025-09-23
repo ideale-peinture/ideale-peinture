@@ -469,55 +469,264 @@
     
     <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 bg-white rounded-lg shadow-xl overflow-hidden">
         <div class="bg-blue-600 text-white px-4 py-3 flex justify-between items-center">
-            <h3 class="font-bold">Chat en direct</h3>
+            <h3 class="font-bold">Vos commentaires</h3>
             <button id="close-chat" class="text-white hover:text-gray-200">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         
-        <div class="p-4 h-64 overflow-y-auto">
+        <div id="chat-messages" class="p-4 h-64 overflow-y-auto">
             <div class="mb-4">
                 <div class="bg-blue-100 text-gray-800 rounded-lg p-3 max-w-xs">
-                    <p>Bonjour ! Comment pouvons-nous vous aider aujourd'hui ?</p>
+                    <p>Bonjour ! Partagez votre expérience avec nos services ou posez-nous vos questions.</p>
                 </div>
-                <p class="text-xs text-gray-500 mt-1">10:24</p>
+                <p class="text-xs text-gray-500 mt-1" id="welcome-time"></p>
             </div>
         </div>
         
         <div class="border-t p-4">
             <div class="flex">
-                <input type="text" placeholder="Tapez votre message..." class="flex-grow px-4 py-2 border rounded-l-md focus:outline-none">
-                <button class="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700">
+                <input type="text" id="chat-input" placeholder="Tapez votre message..." class="flex-grow px-4 py-2 border rounded-l-md focus:outline-none">
+                <button id="send-message" class="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700">
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
+            <p class="text-xs text-gray-500 mt-2 text-center">
+                Vos commentaires nous aident à améliorer nos services
+            </p>
         </div>
     </div>
 </div>
 
 <script>
-    // Fonctionnalité du chat flottant
+// Configuration du chat
+document.addEventListener('DOMContentLoaded', function() {
+    // Éléments du DOM
     const chatButton = document.getElementById('chat-button');
-    const closeChat = document.getElementById('close-chat');
     const chatWindow = document.getElementById('chat-window');
+    const closeChat = document.getElementById('close-chat');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const sendMessage = document.getElementById('send-message');
+    const welcomeTime = document.getElementById('welcome-time');
     
+    // Heure d'accueil
+    welcomeTime.textContent = new Date().toLocaleTimeString('fr-FR', { 
+        hour: '2-digit', 
+        minute: '2-digit' 
+    });
+    
+    // Stockage des messages (simulation base de données)
+    let chatHistory = JSON.parse(localStorage.getItem('idealePeintureChat')) || [];
+    
+    // Charger l'historique du chat
+    function loadChatHistory() {
+        chatMessages.innerHTML = '';
+        
+        // Message de bienvenue
+        const welcomeMsg = document.createElement('div');
+        welcomeMsg.className = 'mb-4';
+        welcomeMsg.innerHTML = `
+            <div class="bg-blue-100 text-gray-800 rounded-lg p-3 max-w-xs">
+                <p>Bonjour ! Partagez votre expérience avec nos services ou posez-nous vos questions.</p>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">${new Date().toLocaleTimeString('fr-FR', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            })}</p>
+        `;
+        chatMessages.appendChild(welcomeMsg);
+        
+        // Charger les messages précédents
+        chatHistory.forEach(msg => {
+            addMessageToChat(msg.text, msg.sender, msg.timestamp, false);
+        });
+        
+        // Scroll vers le bas
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    // Ajouter un message au chat
+    function addMessageToChat(text, sender, timestamp, saveToStorage = true) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `mb-4 ${sender === 'user' ? 'text-right' : ''}`;
+        
+        const bubbleClass = sender === 'user' 
+            ? 'bg-blue-600 text-white rounded-lg p-3 max-w-xs ml-auto' 
+            : 'bg-gray-100 text-gray-800 rounded-lg p-3 max-w-xs';
+        
+        messageDiv.innerHTML = `
+            <div class="${bubbleClass}">
+                <p>${text}</p>
+            </div>
+            <p class="text-xs text-gray-500 mt-1 ${sender === 'user' ? 'text-right' : ''}">
+                ${timestamp}
+            </p>
+        `;
+        
+        chatMessages.appendChild(messageDiv);
+        
+        // Scroll vers le bas
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Sauvegarder dans le stockage local
+        if (saveToStorage) {
+            chatHistory.push({
+                text: text,
+                sender: sender,
+                timestamp: timestamp
+            });
+            localStorage.setItem('idealePeintureChat', JSON.stringify(chatHistory));
+        }
+    }
+    
+    // Envoyer un message
+    function sendUserMessage() {
+        const message = chatInput.value.trim();
+        
+        if (message === '') return;
+        
+        const timestamp = new Date().toLocaleTimeString('fr-FR', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+        
+        // Ajouter le message de l'utilisateur
+        addMessageToChat(message, 'user', timestamp);
+        
+        // Réponse automatique (simulation)
+        setTimeout(() => {
+            const responses = [
+                "Merci pour votre commentaire ! Nous prenons en compte chaque retour pour améliorer nos services.",
+                "Votre avis est précieux pour nous. L'équipe Idéale Peinture vous remercie !",
+                "Nous avons bien reçu votre message. Nos équipes en prendront connaissance rapidement.",
+                "Merci de partager votre expérience. Nous travaillons continuellement à satisfaire nos clients.",
+                "Votre feedback nous aide à progresser. Merci pour votre confiance !"
+            ];
+            
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            const responseTimestamp = new Date().toLocaleTimeString('fr-FR', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+            
+            addMessageToChat(randomResponse, 'bot', responseTimestamp);
+        }, 1000);
+        
+        // Envoyer par email (via Formspree)
+        sendCommentToEmail(message, timestamp);
+        
+        // Vider le champ de saisie
+        chatInput.value = '';
+    }
+    
+    // Envoyer le commentaire par email
+    function sendCommentToEmail(message, timestamp) {
+        const formData = new FormData();
+        formData.append('name', 'Visiteur du site');
+        formData.append('email', 'commentaire@idealepeinture.com');
+        formData.append('subject', 'Nouveau commentaire sur le site');
+        formData.append('message', `Commentaire reçu le ${new Date().toLocaleDateString('fr-FR')} à ${timestamp}:\n\n${message}`);
+        
+        // Remplacez par votre URL Formspree
+        fetch('https://getform.io/f/bwnykqga', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Commentaire envoyé avec succès');
+            } else {
+                console.error('Erreur lors de l\'envoi du commentaire');
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
+    }
+    
+    // Événements
     chatButton.addEventListener('click', function() {
         chatWindow.classList.toggle('hidden');
+        loadChatHistory();
+        if (!chatWindow.classList.contains('hidden')) {
+            chatInput.focus();
+        }
     });
     
     closeChat.addEventListener('click', function() {
         chatWindow.classList.add('hidden');
     });
     
+    sendMessage.addEventListener('click', sendUserMessage);
+    
+    chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendUserMessage();
+        }
+    });
+    
     // Fermer le chat en cliquant à l'extérieur
-    document.addEventListener('click', function(event) {
-        const isChatButton = chatButton.contains(event.target);
-        const isChatWindow = chatWindow.contains(event.target);
-        
-        if (!isChatButton && !isChatWindow && !chatWindow.classList.contains('hidden')) {
+    document.addEventListener('click', function(e) {
+        if (!chatWindow.contains(e.target) && !chatButton.contains(e.target)) {
             chatWindow.classList.add('hidden');
         }
     });
+    
+    // Animation d'apparition du bouton chat
+    setTimeout(() => {
+        chatButton.classList.add('animate-bounce');
+        setTimeout(() => {
+            chatButton.classList.remove('animate-bounce');
+        }, 2000);
+    }, 3000);
+});
+
+// Ajout de styles CSS pour l'animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    #chat-window {
+        animation: fadeIn 0.3s ease-out;
+    }
+    
+    .chat-message {
+        animation: fadeIn 0.3s ease-out;
+    }
+    
+    #chat-button {
+        transition: all 0.3s ease;
+    }
+    
+    #chat-messages::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    #chat-messages::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+    
+    #chat-messages::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 10px;
+    }
+    
+    #chat-messages::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+    }
+`;
+document.head.appendChild(style);
+
+
+
     
     // Fonctionnalité du menu mobile
     document.getElementById('mobile-menu-button').addEventListener('click', function() {
