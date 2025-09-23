@@ -293,77 +293,184 @@
         </div>
     </section>
 
-    <!-- Section À propos -->
-<section id="a-propos" class="py-12 bg-white">
-  <div class="container mx-auto px-4">
-    <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:flex">
-      
-      <!-- Image -->
-      <div class="md:w-1/2">
-        <img src="images/image19.jpg" alt="À propos d'Idéale Peinture" class="w-full h-full object-cover">
-      </div>
-
-      <!-- Texte -->
-      <div class="md:w-1/2 p-8">
-        <span class="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-4">À propos</span>
-        <h2 class="text-3xl font-bold mb-4">Idéale Peinture — Couleur, qualité & durabilité</h2>
-        <p class="text-gray-600 mb-6">
-          Fabricant et distributeur de peintures intérieures et extérieures, nous accompagnons particuliers,
-          professionnels et distributeurs avec des produits techniques, responsables et faciles à appliquer.
-        </p>
-
-        <!-- Avantages -->
-        <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="bg-gray-50 p-4 rounded-lg">
-            <h4 class="font-bold mb-2">Qualité certifiée</h4>
-            <p class="text-sm text-gray-600">Formulations testées pour tenue, résistance aux intempéries et faible odeur.</p>
-          </div>
-          <div class="bg-gray-50 p-4 rounded-lg">
-            <h4 class="font-bold mb-2">Produits écologiques</h4>
-            <p class="text-sm text-gray-600">Gamme à faible COV et respectueuse de l'environnement.</p>
-          </div>
-          <div class="bg-gray-50 p-4 rounded-lg col-span-2">
-            <h4 class="font-bold mb-2">Support pro</h4>
-            <p class="text-sm text-gray-600">Conseils techniques, fiches produits et assistance chantier.</p>
-          </div>
+    
+    <!-- Hero Section -->
+    <header class="gradient-bg min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center py-20" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">À propos de nous</h1>
+                <p class="text-xl md:text-2xl text-white mb-10">Une entreprise innovante portée par des talents passionnés, des produits d'exception et une vision tournée vers l'avenir.</p>
+                <a href="#content" class="inline-block bg-white text-gray-800 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300">
+                    Découvrir
+                    <i data-feather="arrow-down" class="inline ml-2"></i>
+                </a>
+            </div>
         </div>
+    </header>
 
-            <!-- Mission -->
-    <p class="text-gray-600 mb-6">
-      Notre mission : rendre la couleur accessible tout en garantissant tenue et sécurité.
-      Que ce soit pour une rénovation, une construction neuve ou un projet décoratif,
-      Idéale Peinture propose des solutions adaptées et durables.
-    </p>
+    <div id="content" class="bg-white">
+        <!-- Identity Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10" data-aos="fade-right">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Notre identité</h2>
+                        <p class="text-lg text-gray-600 mb-8">Nous façonnons des solutions sur mesure, alliant design, performance et engagement durable.</p>
+                        <div class="flex space-x-4">
+                            <div class="bg-blue-100 p-4 rounded-lg">
+                                <i data-feather="award" class="text-blue-600 w-8 h-8 mb-2"></i>
+                                <h3 class="font-semibold text-blue-800">Excellence</h3>
+                            </div>
+                            <div class="bg-green-100 p-4 rounded-lg">
+                                <i data-feather="heart" class="text-green-600 w-8 h-8 mb-2"></i>
+                                <h3 class="font-semibold text-green-800">Engagement</h3>
+                            </div>
+                            <div class="bg-purple-100 p-4 rounded-lg">
+                                <i data-feather="zap" class="text-purple-600 w-8 h-8 mb-2"></i>
+                                <h3 class="font-semibold text-purple-800">Innovation</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <img src="http://static.photos/technology/1024x576/1" alt="Image de marque ou vision" class="rounded-xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Contact -->
-    <div class="flex justify-between items-center bg-gray-100 p-4 rounded-lg">
-      <div>
-        <strong>Tel :</strong> <span class="text-gray-700">(+228) 90933700</span><br>
-        <small class="text-gray-500">Email : contact@idealpeinture.com</small>
-      </div>
-      <button id="btn-contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
-        Nous contacter
-      </button>
+        <!-- Team Section -->
+        <div class="section-divider"></div>
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-1/2 mb-10 lg:mb-0 lg:order-2 lg:pl-10" data-aos="fade-left">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Notre équipe</h2>
+                        <p class="text-lg text-gray-600 mb-8">Des professionnels créatifs et engagés, moteurs de notre excellence au quotidien.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <i data-feather="users" class="text-indigo-600 w-6 h-6 mb-2"></i>
+                                <h3 class="font-semibold">+50 experts</h3>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <i data-feather="globe" class="text-indigo-600 w-6 h-6 mb-2"></i>
+                                <h3 class="font-semibold">5 nationalités</h3>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <i data-feather="book" class="text-indigo-600 w-6 h-6 mb-2"></i>
+                                <h3 class="font-semibold">+100 ans d'expérience</h3>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <i data-feather="star" class="text-indigo-600 w-6 h-6 mb-2"></i>
+                                <h3 class="font-semibold">20 certifications</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 lg:order-1" data-aos="fade-right">
+                        <img src="http://static.photos/people/1024x576/2" alt="Photo du personnel" class="rounded-xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <div class="section-divider"></div>
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10" data-aos="fade-right">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Nos produits</h2>
+                        <p class="text-lg text-gray-600 mb-8">Une gamme pensée pour séduire, performer et répondre aux besoins les plus exigeants.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i data-feather="check-circle" class="text-blue-600 w-5 h-5"></i>
+                                </div>
+                                <p class="text-gray-700">Conception ergonomique et intuitive</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i data-feather="check-circle" class="text-blue-600 w-5 h-5"></i>
+                                </div>
+                                <p class="text-gray-700">Matériaux haut de gamme et durables</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i data-feather="check-circle" class="text-blue-600 w-5 h-5"></i>
+                                </div>
+                                <p class="text-gray-700">Technologies innovantes brevetées</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <img src="http://static.photos/retail/1024x576/3" alt="Visuel des produits" class="rounded-xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Factory Section -->
+        <div class="section-divider"></div>
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-1/2 mb-10 lg:mb-0 lg:order-2 lg:pl-10" data-aos="fade-left">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Notre usine</h2>
+                        <p class="text-lg text-gray-600 mb-8">Un site de production moderne, optimisé pour la qualité, la sécurité et l'innovation.</p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <i data-feather="shield" class="text-green-600 w-8 h-8 mb-4"></i>
+                                <h3 class="font-bold text-lg mb-2">Normes de sécurité</h3>
+                                <p class="text-gray-600">Certifiée ISO 45001 pour la sécurité au travail</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <i data-feather="cpu" class="text-blue-600 w-8 h-8 mb-4"></i>
+                                <h3 class="font-bold text-lg mb-2">Technologie</h3>
+                                <p class="text-gray-600">Équipements de pointe automatisés</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <i data-feather="leaf" class="text-green-600 w-8 h-8 mb-4"></i>
+                                <h3 class="font-bold text-lg mb-2">Durabilité</h3>
+                                <p class="text-gray-600">Processus respectueux de l'environnement</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <i data-feather="trending-up" class="text-purple-600 w-8 h-8 mb-4"></i>
+                                <h3 class="font-bold text-lg mb-2">Capacité</h3>
+                                <p class="text-gray-600">Production de 50 000 unités/mois</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 lg:order-1" data-aos="fade-right">
+                        <img src="http://static.photos/industry/1024x576/4" alt="Photo de l'usine" class="rounded-xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto" data-aos="zoom-in">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Envie d'en savoir plus ?</h2>
+                    <p class="text-xl mb-10">Notre équipe est à votre disposition pour répondre à toutes vos questions.</p>
+                    <a href="/contact" class="inline-block bg-white text-blue-600 font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition duration-300 shadow-lg">
+                        Contactez-nous
+                        <i data-feather="send" class="inline ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
     </div>
-  </div>
-</div>
 
-<!-- Stats -->
-<div class="mt-10 grid grid-cols-3 gap-6 text-center">
-  <div>
-    <h3 class="text-3xl font-bold text-blue-600">6+</h3>
-    <p class="text-gray-600">Ans d'expérience</p>
-  </div>
-  <div>
-    <h3 class="text-3xl font-bold text-blue-600">1200+</h3>
-    <p class="text-gray-600">Projets réalisés</p>
-  </div>
-  <div>
-    <h3 class="text-3xl font-bold text-blue-600">250+</h3>
-    <p class="text-gray-600">Points de vente</p>
-  </div>
-</div>
-</div> </section>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+    </script>
+
 <!-- Call to Action -->
 <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
     <div class="container mx-auto px-4 text-center">
