@@ -20,7 +20,177 @@
         </div>
     </div>
 </section>
- <!-- Promotions Section --> <section class="py-12 bg-gray-50"> <div class="container mx-auto px-4"> <div class="text-center mb-12"> <h2 class="text-3xl font-bold mb-4">Promotions en cours</h2> <p class="text-gray-600 max-w-2xl mx-auto">Profitez de nos offres spéciales sur une sélection de nos meilleurs produits</p> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> <!-- Promotion 1 --> <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl"> <div class="relative"> <img src="images/image6.jpg" alt="Peinture promotion" class="w-full h-48 object-cover"> <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">-20%</div> </div> <div class="p-6"> <h3 class="text-xl font-bold mb-2">Peinture intérieure matte</h3> <p class="text-gray-600 mb-4">Ultra couvrante, sans odeur et écologique</p> <div class="flex items-center justify-between"> <div> <span class="text-red-500 font-bold text-xl">16 400 FCFA</span> <span class="text-gray-400 line-through ml-2">20 500 FCFA</span> </div> <a href="#" data-product="Peinture intérieure matte" class="whatsapp-order-button inline-flex items-center justify-center bg-blue-600 text-white px-3 py-1.5 text-sm rounded-md hover:bg-blue-700 text-center">Commander</a> </div> </div> </div> <!-- Promotion 2 --> <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl"> <div class="relative"> <img src="images/image3.jpg" alt="Peinture promotion" class="w-full h-48 object-cover"> <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">-15%</div> </div> <div class="p-6"> <h3 class="text-xl font-bold mb-2">Peinture extérieure façade</h3> <p class="text-gray-600 mb-4">Résistante aux intempéries et aux UV</p> <div class="flex items-center justify-between"> <div> <span class="text-red-500 font-bold text-xl">26 300 FCFA</span> <span class="text-gray-400 line-through ml-2">31 000 FCFA</span> </div> <a href="#" data-product="Peinture extérieure façade" class="whatsapp-order-button inline-flex items-center justify-center bg-blue-600 text-white px-3 py-1.5 text-sm rounded-md hover:bg-blue-700 text-center">Commander</a> </div> </div> </div> <!-- Promotion 3 --> <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl"> <div class="relative"> <img src="images/image2.jpg" alt="Peinture promotion" class="w-full h-48 object-cover"> <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">Pack -30%</div> </div> <div class="p-6"> <h3 class="text-xl font-bold mb-2">Pack rénovation complète</h3> <p class="text-gray-600 mb-4">Tout ce dont vous avez besoin pour vos travaux</p> <div class="flex items-center justify-between"> <div> <span class="text-red-500 font-bold text-xl">59 000 FCFA</span> <span class="text-gray-400 line-through ml-2">84 500 FCFA</span> </div> <a href="#" data-product="Pack rénovation complète" class="whatsapp-order-button inline-flex items-center justify-center bg-blue-600 text-white px-3 py-1.5 text-sm rounded-md hover:bg-blue-700 text-center">Commander</a> </div> </div> </div> </div> </div> </section> </body>  <!-- Product Categories - Ajout de l'ID ici -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idéale Peinture - Promotions</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        .modal-close:hover {
+            color: #374151;
+        }
+
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+        }
+
+        .btn-email {
+            background: #374151;
+            color: white;
+        }
+
+        .btn-email:hover {
+            background: #1f2937;
+        }
+
+        .btn-back {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: #4b5563;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+
+    <!-- Promotions Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Promotions en cours</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Profitez de nos offres spéciales sur une sélection de nos meilleurs produits</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Promotion 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <img src="images/image6.jpg" alt="Peinture promotion" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">-20%</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Peinture intérieure matte</h3>
+                        <p class="text-gray-600 mb-4">Ultra couvrante, sans odeur et écologique</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-red-500 font-bold text-xl">16 400 FCFA</span>
+                                <span class="text-gray-400 line-through ml-2">20 500 FCFA</span>
+                            </div>
+                            <button data-product="Peinture intérieure matte - Promotion -20%" class="order-button-promo inline-flex items-center justify-center bg-blue-600 text-white px-3 py-1.5 text-sm rounded-md hover:bg-blue-700 text-center">
+                                Commander
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promotion 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <img src="images/image3.jpg" alt="Peinture promotion" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">-15%</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Peinture extérieure façade</h3>
+                        <p class="text-gray-600 mb-4">Résistante aux intempéries et aux UV</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-red-500 font-bold text-xl">26 300 FCFA</span>
+                                <span class="text-gray-400 line-through ml-2">31 000 FCFA</span>
+                            </div>
+                            <button data-product="Peinture extérieure façade - Promotion -15%" class="order-button-promo inline-flex items-center justify-center bg-blue-600 text-white px-3 py-1.5 text-sm rounded-md hover:bg-blue-700 text-center">
+                                Commander
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promotion 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl">
+                    <div class="relative">
+                        <img src="images/image2.jpg" alt="Peinture promotion" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">Pack -30%</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pack rénovation complète</h3>
+                        <p class="text-gray-600 mb-4">Tout ce dont vous avez besoin pour vos travaux</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-red-500 font-bold text-xl">59 000 FCFA</span>
+                                <span class="text-gray-400 line-through ml-2">84 500 FCFA</span>
+                            </div>
+                            <button data-product="Pack rénovation complète - Promotion -30%" class="order-button-promo inline-flex items-center justify-center bg-blue-600 text-white px-3 py-1.5 text-sm rounded-md hover:bg-blue-700 text-center">
+                                Commander
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
     <section id="nos-categories" class="py-12">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -46,7 +216,6 @@
                             <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Peintures brillantes</li>
                             <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Peintures spéciales</li>
                         </ul>
-
                         <a href="intérieur.html" class="text-blue-600 font-medium hover:underline flex items-center">
                             Voir les produits <i class="fas fa-arrow-right ml-2"></i>
                         </a>
@@ -101,6 +270,189 @@
             </div>
         </div>
     </section>
+
+    <!-- Modale de commande pour les promotions -->
+    <div id="orderModalPromo" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalPromo">&times;</button>
+            
+            <!-- Vue de choix -->
+            <div id="choiceViewPromo" class="view active">
+                <h2 class="text-2xl font-bold text-center mb-4">Commander cette promotion</h2>
+                <p class="text-center text-gray-600 mb-6">Choisissez votre méthode de contact préférée</p>
+                
+                <div class="space-y-4">
+                    <button id="whatsappBtnPromo" class="w-full py-3 px-4 rounded-lg btn-whatsapp flex items-center justify-center transition duration-300">
+                        <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                        Commander sur WhatsApp
+                    </button>
+                    
+                    <button id="emailBtnPromo" class="w-full py-3 px-4 rounded-lg btn-email flex items-center justify-center transition duration-300">
+                        <i class="fas fa-envelope mr-3 text-xl"></i>
+                        Commander par Email
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Vue formulaire email -->
+            <div id="emailViewPromo" class="view">
+                <button id="backBtnPromo" class="mb-4 py-2 px-4 rounded-lg btn-back flex items-center transition duration-300">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Retour
+                </button>
+                
+                <h2 class="text-2xl font-bold text-center mb-4">Commander par Email</h2>
+                <p class="text-center text-gray-600 mb-6" id="productInfoPromo"></p>
+                
+                <form id="emailFormPromo" action="https://formspree.io/f/xknlwqbd" method="POST">
+                    <input type="hidden" id="productNamePromo" name="product" value="">
+                    <input type="hidden" id="promotionType" name="promotion" value="Promotion">
+                    
+                    <div class="mb-4">
+                        <label for="namePromo" class="block text-sm font-medium text-gray-700 mb-1">Votre nom *</label>
+                        <input type="text" id="namePromo" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="emailPromo" class="block text-sm font-medium text-gray-700 mb-1">Votre email *</label>
+                        <input type="email" id="emailPromo" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="phonePromo" class="block text-sm font-medium text-gray-700 mb-1">Votre téléphone *</label>
+                        <input type="tel" id="phonePromo" name="phone" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="quantityPromo" class="block text-sm font-medium text-gray-700 mb-1">Quantité souhaitée</label>
+                        <select id="quantityPromo" name="quantity" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="1">1 unité</option>
+                            <option value="2">2 unités</option>
+                            <option value="3">3 unités</option>
+                            <option value="4">4 unités</option>
+                            <option value="5+">5 unités ou plus</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="messagePromo" class="block text-sm font-medium text-gray-700 mb-1">Message supplémentaire</label>
+                        <textarea id="messagePromo" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Informations complémentaires, adresse de livraison..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300">
+                        Envoyer la commande
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration de la modale de commande pour les promotions
+        const whatsappNumber = '22893807047';
+        const orderModalPromo = document.getElementById('orderModalPromo');
+        const closeModalPromo = document.getElementById('closeModalPromo');
+        const choiceViewPromo = document.getElementById('choiceViewPromo');
+        const emailViewPromo = document.getElementById('emailViewPromo');
+        const whatsappBtnPromo = document.getElementById('whatsappBtnPromo');
+        const emailBtnPromo = document.getElementById('emailBtnPromo');
+        const backBtnPromo = document.getElementById('backBtnPromo');
+        const emailFormPromo = document.getElementById('emailFormPromo');
+        const productNamePromo = document.getElementById('productNamePromo');
+        const productInfoPromo = document.getElementById('productInfoPromo');
+
+        let currentPromoProduct = '';
+        let currentPromoPrice = '';
+
+        // Ouvrir la modale au clic sur les boutons Commander des promotions
+        document.querySelectorAll('.order-button-promo').forEach(button => {
+            button.addEventListener('click', () => {
+                currentPromoProduct = button.getAttribute('data-product');
+                
+                // Récupérer le prix du produit
+                const priceElement = button.closest('.flex').querySelector('.text-red-500');
+                currentPromoPrice = priceElement ? priceElement.textContent.trim() : '';
+                
+                showModalPromo();
+            });
+        });
+
+        // Fonction pour afficher la modale des promotions
+        function showModalPromo() {
+            orderModalPromo.style.display = 'flex';
+            showViewPromo('choiceViewPromo');
+            
+            // Mettre à jour l'info du produit dans le formulaire email
+            if (productInfoPromo) {
+                productInfoPromo.textContent = `Produit : ${currentPromoProduct}`;
+            }
+        }
+
+        // Fonction pour fermer la modale des promotions
+        function closeModalPromoFunc() {
+            orderModalPromo.style.display = 'none';
+        }
+
+        // Fonction pour changer de vue dans la modale des promotions
+        function showViewPromo(viewName) {
+            // Cacher toutes les vues
+            document.querySelectorAll('#orderModalPromo .view').forEach(view => {
+                view.classList.remove('active');
+            });
+            
+            // Afficher la vue demandée
+            document.getElementById(viewName).classList.add('active');
+        }
+
+        // Événements des boutons de la modale des promotions
+        closeModalPromo.addEventListener('click', closeModalPromoFunc);
+        
+        whatsappBtnPromo.addEventListener('click', () => {
+            const message = encodeURIComponent(`Bonjour, je souhaite commander la promotion suivante : ${currentPromoProduct}${currentPromoPrice ? ` au prix de ${currentPromoPrice}` : ''} via votre site Idéale Peinture.`);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+            closeModalPromoFunc();
+        });
+        
+        emailBtnPromo.addEventListener('click', () => {
+            productNamePromo.value = currentPromoProduct;
+            showViewPromo('emailViewPromo');
+        });
+        
+        backBtnPromo.addEventListener('click', () => {
+            showViewPromo('choiceViewPromo');
+        });
+
+        // Fermer la modale en cliquant à l'extérieur
+        orderModalPromo.addEventListener('click', (e) => {
+            if (e.target === orderModalPromo) {
+                closeModalPromoFunc();
+            }
+        });
+
+        // Gestion de la soumission du formulaire des promotions
+        emailFormPromo.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Afficher un message de confirmation
+            alert('Votre commande promotionnelle a été envoyée avec succès ! Nous vous contacterons rapidement pour finaliser votre achat.');
+            
+            // Réinitialiser le formulaire et fermer la modale
+            emailFormPromo.reset();
+            closeModalPromoFunc();
+        });
+
+        // Initialisation des animations AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialisation des icônes Feather
+        feather.replace();
+    </script>
+
 
 
 
