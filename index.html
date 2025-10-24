@@ -9,12 +9,13 @@
 </head>
 
 <body class="font-sans antialiased text-gray-800">
+
 <!-- HEADER -->
 <header class="backdrop-blur-md bg-yellow-300/70 shadow-lg sticky top-0 z-50 border-b border-white/20">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between md:justify-center py-4">
 
-      <!-- Logo cliquable -->
+      <!-- Logo -->
       <div class="flex items-center">
         <a href="index.html">
           <img src="images/logo.png" alt="Idéale Peinture" class="h-12 w-auto hover:scale-105 transition-transform duration-200">
@@ -23,13 +24,13 @@
 
       <!-- Navigation Desktop -->
       <nav class="hidden md:flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2 shadow-md">
-        <a href="#" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition duration-200">Accueil</a>
-        <a href="#nos-categories" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition duration-200">Nos peintures</a>
-        <a href="#nos-realisations" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition duration-200">Réalisations</a>
-        <a href="#a-propos" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition duration-200">À propos</a>
-        <a href="inspiration.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition duration-200">Conseils & inspiration</a>
-        <a href="contact.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition duration-200">Contact</a>
-        <a href="devenir-distributeur.html" class="ml-2 px-4 py-2 bg-[#FFD700] text-[#e3342f] font-bold rounded-full shadow hover:bg-[#e3342f] hover:text-white transition duration-200">Devenir distributeur</a>
+        <a href="#" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">Accueil</a>
+        <a href="#nos-categories" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">Nos peintures</a>
+        <a href="#nos-realisations" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">Réalisations</a>
+        <a href="#a-propos" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">À propos</a>
+        <a href="inspiration.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">Conseils & inspiration</a>
+        <a href="contact.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">Contact</a>
+        <a href="devenir-distributeur.html" class="ml-2 px-4 py-2 bg-[#FFD700] text-[#e3342f] font-bold rounded-full shadow hover:bg-[#e3342f] hover:text-white transition">Devenir distributeur</a>
       </nav>
 
       <!-- Bouton menu mobile -->
@@ -38,8 +39,8 @@
       </button>
     </div>
 
-    <!-- Navigation Mobile -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white/90 rounded-xl shadow-lg mt-2 p-4 animate-fade-in">
+    <!-- Menu mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/90 rounded-xl shadow-lg mt-2 p-4">
       <a href="index.html" class="block px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 rounded-full transition">Accueil</a>
       <a href="#nos-categories" class="block px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 rounded-full transition">Nos peintures</a>
       <a href="#nos-realisations" class="block px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 rounded-full transition">Réalisations</a>
@@ -50,30 +51,37 @@
     </div>
   </div>
 </header>
-         <!-- Hero Section À propos -->
+
+<!-- Bannière simple -->
 <section>
   <img src="images/barnière peinture copie.jpg" alt="Peinture Idéale" class="w-full h-auto">
 </section>
 
-
-  <div class="relative container mx-auto px-6 flex flex-col items-center justify-center text-center text-white py-24">
-    <h2 class="text-4xl md:text-5xl font-extrabold mb-6">L’excellence au service de vos projets</h2>
-    <p class="text-lg md:text-xl mb-8 max-w-2xl">
-      Chez <span class="text-[#FFD700] font-semibold">Idéale Peinture</span>, nous allions passion, expertise et innovation pour embellir vos espaces.
-    </p>
-
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#nos-categories" 
-         class="bg-[#FFD700] text-[#e3342f] font-bold px-8 py-3 rounded-full shadow-lg hover:bg-[#e3342f] hover:text-white transition duration-300">
-         Nos produits
-      </a>
-      <a href="contact.html#devis" 
-         class="bg-white text-[#e3342f] font-bold px-8 py-3 rounded-full shadow-lg hover:bg-[#FFD700] hover:text-white transition duration-300">
-         Demander un devis
-      </a>
-    </div>
+<!-- Boutons sous la bannière -->
+<div class="text-center py-10">
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="#nos-categories" 
+       class="bg-[#FFD700] text-[#e3342f] font-bold px-8 py-3 rounded-full shadow-lg hover:bg-[#e3342f] hover:text-white transition duration-300">
+       Nos produits
+    </a>
+    <a href="contact.html#devis" 
+       class="bg-white text-[#e3342f] font-bold px-8 py-3 rounded-full shadow-lg hover:bg-[#FFD700] hover:text-white transition duration-300">
+       Demander un devis
+    </a>
   </div>
-</section>
+</div>
+
+<script>
+  // Menu mobile
+  const menuBtn = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+</body>
+
 
 <head>
     <meta charset="UTF-8">
