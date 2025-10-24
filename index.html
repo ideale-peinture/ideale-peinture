@@ -427,329 +427,242 @@
                 </div>
             </div>
             
-            <!-- Vue formulaire email -->
-            <div id="emailViewPromo" class="view">
-                <button id="backBtnPromo" class="mb-6 py-2 px-4 rounded-lg btn-back flex items-center transition duration-300">
-                    <i class="fas fa-arrow-left mr-2"></i>
-                    Retour
-                </button>
-                
-                <div class="text-center mb-6">
-                    <h2 class="text-2xl font-bold mb-2">Commander par Email</h2>
-                    <p class="text-gray-600" id="productInfoPromo">Remplissez le formulaire ci-dessous</p>
-                </div>
-                
-                <form id="emailFormPromo" action="https://getform.io/f/arogmwwb" method="POST">
-                    <input type="hidden" id="productNamePromo" name="product" value="">
-                    <input type="hidden" name="promotion" value="Promotion">
-                    
-                    <div class="space-y-4">
-                        <div>
-                            <label for="namePromo" class="block text-sm font-medium text-gray-700 mb-2">Votre nom complet *</label>
-                            <input type="text" id="namePromo" name="name" required 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" 
-                                   placeholder="Entrez votre nom complet">
-                        </div>
-                        
-                        <div>
-                            <label for="emailPromo" class="block text-sm font-medium text-gray-700 mb-2">Votre adresse email *</label>
-                            <input type="email" id="emailPromo" name="email" required 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" 
-                                   placeholder="votre@email.com">
-                        </div>
-                        
-                        <div>
-                            <label for="phonePromo" class="block text-sm font-medium text-gray-700 mb-2">Votre numéro de téléphone *</label>
-                            <input type="tel" id="phonePromo" name="phone" required 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" 
-                                   placeholder="+228 XX XX XX XX">
-                        </div>
-                        
-                        <div>
-                            <label for="quantityPromo" class="block text-sm font-medium text-gray-700 mb-2">Quantité souhaitée</label>
-                            <select id="quantityPromo" name="quantity" 
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200">
-                                <option value="1">1 unité</option>
-                                <option value="2">2 unités</option>
-                                <option value="3">3 unités</option>
-                                <option value="4">4 unités</option>
-                                <option value="5+">5 unités ou plus</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="messagePromo" class="block text-sm font-medium text-gray-700 mb-2">Message supplémentaire (optionnel)</label>
-                            <textarea id="messagePromo" name="message" rows="4" 
-                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 resize-none" 
-                                      placeholder="Informations complémentaires, adresse de livraison, questions particulières..."></textarea>
-                        </div>
-                        
-                        <!-- BOUTON DE SOUMISSION BIEN VISIBLE -->
-                        <div class="pt-4">
-                            <button type="submit" id="submitButton" 
-                                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
-                                <i class="fas fa-paper-plane mr-2"></i>
-                                Envoyer ma commande
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
-                        <p class="text-xs text-gray-600 text-center flex items-center justify-center">
-                            <i class="fas fa-shield-alt mr-2 text-green-600"></i>
-                            Vos informations personnelles sont sécurisées et ne seront jamais partagées avec des tiers
-                        </p>
-                    </div>
-                </form>
+           <!-- Vue formulaire email -->
+<div id="emailViewPromo" class="view">
+    <button id="backBtnPromo" class="mb-6 py-2 px-4 rounded-lg btn-back flex items-center transition duration-300">
+        <i class="fas fa-arrow-left mr-2"></i>
+        Retour
+    </button>
+    
+    <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold mb-2">Commander par Email</h2>
+        <p class="text-gray-600" id="productInfoPromo">Remplissez le formulaire ci-dessous</p>
+    </div>
+    
+    <form id="emailFormPromo" action="https://getform.io/f/arogmwwb" method="POST">
+        <input type="hidden" id="productNamePromo" name="product" value="">
+        <input type="hidden" name="promotion" value="Promotion">
+        
+        <div class="space-y-4">
+            <div>
+                <label for="namePromo" class="block text-sm font-medium text-gray-700 mb-2">Votre nom complet *</label>
+                <input type="text" id="namePromo" name="name" required 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" 
+                       placeholder="Entrez votre nom complet">
             </div>
-
-            <!-- Vue de confirmation -->
-            <div id="confirmationView" class="view">
-                <div class="text-center py-8">
-                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
-                        <i class="fas fa-check text-green-600 text-3xl"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold text-green-800 mb-4">Commande envoyée avec succès !</h2>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Nous avons bien reçu votre demande de commande.<br>
-                        Notre équipe vous contactera dans les <strong>24 heures</strong> pour confirmer votre commande et organiser la livraison.
-                    </p>
-                    <div class="bg-blue-50 p-4 rounded-lg mb-6">
-                        <p class="text-sm text-blue-800">
-                            <i class="fas fa-info-circle mr-2"></i>
-                            Vous recevrez également un email de confirmation à l'adresse indiquée.
-                        </p>
-                    </div>
-                    <button id="closeAfterSubmit" 
-                            class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
-                        <i class="fas fa-times mr-2"></i>
-                        Fermer
-                    </button>
-                </div>
+            
+            <div>
+                <label for="emailPromo" class="block text-sm font-medium text-gray-700 mb-2">Votre adresse email *</label>
+                <input type="email" id="emailPromo" name="email" required 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" 
+                       placeholder="exemple@gmail.com">
+            </div>
+            
+            <div>
+                <label for="phonePromo" class="block text-sm font-medium text-gray-700 mb-2">Votre numéro de téléphone *</label>
+                <input type="tel" id="phonePromo" name="phone" required 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200" 
+                       placeholder="+228 XX XX XX XX">
+            </div>
+            
+            <div>
+                <label for="quantityPromo" class="block text-sm font-medium text-gray-700 mb-2">Quantité souhaitée</label>
+                <select id="quantityPromo" name="quantity" 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200">
+                    <option value="1">1 unité</option>
+                    <option value="2">2 unités</option>
+                    <option value="3">3 unités</option>
+                    <option value="4">4 unités</option>
+                    <option value="5+">5 unités ou plus</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="messagePromo" class="block text-sm font-medium text-gray-700 mb-2">Message supplémentaire (optionnel)</label>
+                <textarea id="messagePromo" name="message" rows="4" 
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 resize-none" 
+                          placeholder="Adresse de livraison, remarques..."></textarea>
+            </div>
+            
+            <!-- BOUTON DE SOUMISSION -->
+            <div class="pt-4">
+                <button type="submit" id="submitButton" 
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Envoyer ma commande
+                </button>
             </div>
         </div>
+
+        <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+            <p class="text-xs text-gray-600 text-center flex items-center justify-center">
+                <i class="fas fa-shield-alt mr-2 text-green-600"></i>
+                Vos informations sont sécurisées et ne seront jamais partagées.
+            </p>
+        </div>
+    </form>
+</div>
+
+<!-- Vue de confirmation -->
+<div id="confirmationView" class="view">
+    <div class="text-center py-8">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
+            <i class="fas fa-check text-green-600 text-3xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-green-800 mb-4">Commande envoyée avec succès !</h2>
+        <p class="text-gray-600 mb-6 leading-relaxed">
+            Nous avons bien reçu votre commande.<br>
+            Notre équipe vous contactera sous <strong>24 heures</strong>.
+        </p>
+        <div class="bg-blue-50 p-4 rounded-lg mb-6">
+            <p class="text-sm text-blue-800">
+                <i class="fas fa-info-circle mr-2"></i>
+                Vous recevrez un e-mail de confirmation à l’adresse indiquée.
+            </p>
+        </div>
+        <button id="closeAfterSubmit" 
+                class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+            <i class="fas fa-times mr-2"></i>
+            Fermer
+        </button>
     </div>
+</div>
 
-    <script>
-        // Configuration
-        const whatsappNumber = '22890792752';
-        
-        // Éléments DOM
-        const orderModalPromo = document.getElementById('orderModalPromo');
-        const closeModalPromo = document.getElementById('closeModalPromo');
-        const choiceViewPromo = document.getElementById('choiceViewPromo');
-        const emailViewPromo = document.getElementById('emailViewPromo');
-        const confirmationView = document.getElementById('confirmationView');
-        const whatsappBtnPromo = document.getElementById('whatsappBtnPromo');
-        const emailBtnPromo = document.getElementById('emailBtnPromo');
-        const backBtnPromo = document.getElementById('backBtnPromo');
-        const emailFormPromo = document.getElementById('emailFormPromo');
-        const productNamePromo = document.getElementById('productNamePromo');
-        const productInfoPromo = document.getElementById('productInfoPromo');
-        const selectedProductInfo = document.getElementById('selectedProductInfo');
-        const submitButton = document.getElementById('submitButton');
-        const closeAfterSubmit = document.getElementById('closeAfterSubmit');
+<script>
+const whatsappNumber = '22890792752';
+const orderModalPromo = document.getElementById('orderModalPromo');
+const closeModalPromo = document.getElementById('closeModalPromo');
+const choiceViewPromo = document.getElementById('choiceViewPromo');
+const emailViewPromo = document.getElementById('emailViewPromo');
+const confirmationView = document.getElementById('confirmationView');
+const whatsappBtnPromo = document.getElementById('whatsappBtnPromo');
+const emailBtnPromo = document.getElementById('emailBtnPromo');
+const backBtnPromo = document.getElementById('backBtnPromo');
+const emailFormPromo = document.getElementById('emailFormPromo');
+const productNamePromo = document.getElementById('productNamePromo');
+const productInfoPromo = document.getElementById('productInfoPromo');
+const selectedProductInfo = document.getElementById('selectedProductInfo');
+const submitButton = document.getElementById('submitButton');
+const closeAfterSubmit = document.getElementById('closeAfterSubmit');
 
-        let currentPromoProduct = '';
-        let currentPromoPrice = '';
+let currentPromoProduct = '';
+let currentPromoPrice = '';
 
-        // Event listeners pour les boutons Commander
-        document.querySelectorAll('.order-button-promo').forEach(button => {
-            button.addEventListener('click', () => {
-                currentPromoProduct = button.getAttribute('data-product');
-                currentPromoPrice = button.getAttribute('data-price') || '';
-                
-                console.log('Produit sélectionné:', currentPromoProduct);
-                console.log('Prix:', currentPromoPrice);
-                
-                showModalPromo();
-            });
+document.querySelectorAll('.order-button-promo').forEach(button => {
+    button.addEventListener('click', () => {
+        currentPromoProduct = button.getAttribute('data-product');
+        currentPromoPrice = button.getAttribute('data-price') || '';
+        showModalPromo();
+    });
+});
+
+function showModalPromo() {
+    orderModalPromo.style.display = 'flex';
+    showViewPromo('choiceViewPromo');
+    if (selectedProductInfo)
+        selectedProductInfo.textContent = `Produit sélectionné : ${currentPromoProduct}`;
+    if (productInfoPromo)
+        productInfoPromo.textContent = `${currentPromoProduct} - ${currentPromoPrice}`;
+    orderModalPromo.focus();
+}
+
+function closeModalPromoFunc() {
+    orderModalPromo.style.display = 'none';
+    emailFormPromo.reset();
+    submitButton.disabled = false;
+    submitButton.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Envoyer ma commande';
+}
+
+function showViewPromo(viewName) {
+    document.querySelectorAll('#orderModalPromo .view').forEach(view => {
+        view.classList.remove('active');
+    });
+    const targetView = document.getElementById(viewName);
+    if (targetView) targetView.classList.add('active');
+}
+
+closeModalPromo.addEventListener('click', closeModalPromoFunc);
+closeAfterSubmit.addEventListener('click', closeModalPromoFunc);
+
+whatsappBtnPromo.addEventListener('click', () => {
+    const message = encodeURIComponent(
+        `Bonjour ! Je souhaite commander cette promotion :\n\n📦 ${currentPromoProduct}\n💰 Prix : ${currentPromoPrice}\n\nMerci de me contacter pour finaliser ma commande.\n\nCordialement`
+    );
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+    closeModalPromoFunc();
+});
+
+emailBtnPromo.addEventListener('click', () => {
+    productNamePromo.value = `${currentPromoProduct} - ${currentPromoPrice}`;
+    showViewPromo('emailViewPromo');
+    document.getElementById('namePromo').focus();
+});
+
+backBtnPromo.addEventListener('click', () => showViewPromo('choiceViewPromo'));
+
+// ✅ Soumission réelle vers Getform.io
+emailFormPromo.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
+
+    try {
+        const formData = new FormData(emailFormPromo);
+        const response = await fetch('https://getform.io/f/arogmwwb', {
+            method: 'POST',
+            body: formData
         });
 
-        // Fonctions de gestion de la modale
-        function showModalPromo() {
-            orderModalPromo.style.display = 'flex';
-            showViewPromo('choiceViewPromo');
-            
-            // Mettre à jour les informations du produit
-            if (selectedProductInfo) {
-                selectedProductInfo.textContent = `Produit sélectionné : ${currentPromoProduct}`;
-            }
-            if (productInfoPromo) {
-                productInfoPromo.textContent = `${currentPromoProduct} - ${currentPromoPrice}`;
-            }
-            
-            // Focus sur la modale pour l'accessibilité
-            orderModalPromo.focus();
-        }
+        if (!response.ok) throw new Error('Erreur lors de l’envoi');
 
-        function closeModalPromoFunc() {
-            orderModalPromo.style.display = 'none';
-            emailFormPromo.reset();
-            submitButton.disabled = false;
-            submitButton.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Envoyer ma commande';
-        }
+        showViewPromo('confirmationView');
+        emailFormPromo.reset();
 
-        function showViewPromo(viewName) {
-            // Cacher toutes les vues
-            document.querySelectorAll('#orderModalPromo .view').forEach(view => {
-                view.classList.remove('active');
-            });
-            
-            // Afficher la vue demandée
-            const targetView = document.getElementById(viewName);
-            if (targetView) {
-                targetView.classList.add('active');
-            }
-        }
+    } catch (error) {
+        console.error('Erreur lors de l’envoi :', error);
+        alert('Une erreur est survenue lors de l’envoi de votre commande. Veuillez réessayer.');
+        submitButton.disabled = false;
+        submitButton.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Envoyer ma commande';
+    }
+});
 
-        // Event listeners pour les boutons de navigation
-        closeModalPromo.addEventListener('click', closeModalPromoFunc);
-        closeAfterSubmit.addEventListener('click', closeModalPromoFunc);
-        
-        whatsappBtnPromo.addEventListener('click', () => {
-            const message = encodeURIComponent(
-                `Bonjour ! Je souhaite commander cette promotion :\n\n` +
-                `📦 ${currentPromoProduct}\n` +
-                `💰 Prix : ${currentPromoPrice}\n\n` +
-                `Merci de me contacter pour finaliser ma commande.\n\n` +
-                `Cordialement`
-            );
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-            closeModalPromoFunc();
-        });
-        
-        emailBtnPromo.addEventListener('click', () => {
-            productNamePromo.value = `${currentPromoProduct} - ${currentPromoPrice}`;
-            showViewPromo('emailViewPromo');
-            
-            // Focus sur le premier champ du formulaire
-            document.getElementById('namePromo').focus();
-        });
-        
-        backBtnPromo.addEventListener('click', () => {
-            showViewPromo('choiceViewPromo');
-        });
+orderModalPromo.addEventListener('click', (e) => {
+    if (e.target === orderModalPromo) closeModalPromoFunc();
+});
 
-        // Gestion de la soumission du formulaire
-        emailFormPromo.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            console.log('Formulaire soumis');
-            
-            // Désactiver le bouton et afficher le loading
-            submitButton.disabled = true;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
-            
-            try {
-                // Préparer les données du formulaire
-                const formData = new FormData(emailFormPromo);
-                
-                // Log des données pour debug
-                console.log('Données du formulaire:');
-                for (let [key, value] of formData.entries()) {
-                    console.log(key, value);
-                }
-                
-                // Simuler l'envoi (remplacer par l'API réelle)
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // En production, décommenter cette partie :
-                /*
-                const response = await fetch('https://getform.io/f/bwnykqga', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                if (!response.ok) {
-                    throw new Error('Erreur lors de l\'envoi');
-                }
-                */
-                
-                console.log('Commande envoyée avec succès');
-                
-                // Afficher la vue de confirmation
-                showViewPromo('confirmationView');
-                
-                // Réinitialiser le formulaire
-                emailFormPromo.reset();
-                
-            } catch (error) {
-                console.error('Erreur lors de l\'envoi:', error);
-                alert('Une erreur est survenue lors de l\'envoi de votre commande. Veuillez réessayer ou nous contacter directement.');
-                
-                // Réactiver le bouton
-                submitButton.disabled = false;
-                submitButton.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Envoyer ma commande';
-            }
-        });
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && orderModalPromo.style.display === 'flex') {
+        closeModalPromoFunc();
+    }
+});
 
-        // Fermer la modale en cliquant à l'extérieur
-        orderModalPromo.addEventListener('click', (e) => {
-            if (e.target === orderModalPromo) {
-                closeModalPromoFunc();
-            }
-        });
+// Validation en temps réel
+const requiredFields = ['namePromo', 'emailPromo', 'phonePromo'];
+requiredFields.forEach(fieldId => {
+    const field = document.getElementById(fieldId);
+    if (field) {
+        field.addEventListener('input', validateForm);
+        field.addEventListener('blur', validateForm);
+    }
+});
+function validateForm() {
+    const isValid = requiredFields.every(id => {
+        const field = document.getElementById(id);
+        return field && field.value.trim() !== '';
+    });
+    submitButton.disabled = !isValid;
+    submitButton.style.opacity = isValid ? '1' : '0.6';
+}
 
-        // Gestion de la touche Échap
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && orderModalPromo.style.display === 'flex') {
-                closeModalPromoFunc();
-            }
-        });
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Formulaire promo chargé.');
+    if (typeof AOS !== 'undefined') {
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+    }
+});
+</script>
 
-        // Validation en temps réel du formulaire
-        const requiredFields = ['namePromo', 'emailPromo', 'phonePromo'];
-        
-        requiredFields.forEach(fieldId => {
-            const field = document.getElementById(fieldId);
-            if (field) {
-                field.addEventListener('input', validateForm);
-                field.addEventListener('blur', validateForm);
-            }
-        });
-
-        function validateForm() {
-            const isValid = requiredFields.every(fieldId => {
-                const field = document.getElementById(fieldId);
-                return field && field.value.trim() !== '';
-            });
-            
-            if (submitButton) {
-                submitButton.disabled = !isValid;
-                submitButton.style.opacity = isValid ? '1' : '0.6';
-            }
-        }
-
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page chargée, initialisation des promotions');
-            
-            // Initialiser AOS si disponible
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 800,
-                    easing: 'ease-in-out',
-                    once: true
-                });
-            }
-            
-            // Vérifier que tous les éléments sont présents
-            const requiredElements = [
-                'orderModalPromo', 'closeModalPromo', 'choiceViewPromo', 
-                'emailViewPromo', 'confirmationView', 'emailFormPromo', 'submitButton'
-            ];
-            
-            const missingElements = requiredElements.filter(id => !document.getElementById(id));
-            
-            if (missingElements.length > 0) {
-                console.warn('Éléments manquants:', missingElements);
-            } else {
-                console.log('Tous les éléments requis sont présents');
-            }
-        });
-    </script>
 
     <!-- Product Categories -->
     <section id="nos-categories" class="py-12">
