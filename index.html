@@ -721,25 +721,24 @@ Chez nous, chaque couleur reflète notre engagement, notre créativité et notre
 <!-- Social Media Links with Usernames -->
 
           
-          
-          <div class="flex space-x-4">
+<div class="flex space-x-4">
     <!-- Facebook -->
-    <a "@Ideale Peinture" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
+    <a href="https://facebook.com/IdealePeinture" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
         <i class="fab fa-facebook-f"></i>
     </a>
-    <span class="text-gray-800">Ideale Peinture</span>
+    <span class="text-white">Ideale Peinture</span>
 
     <!-- WhatsApp -->
     <a href="#" onclick="showWhatsappPopup()" aria-label="WhatsApp" class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
         <i class="fab fa-whatsapp"></i>
     </a>
-    <span class="text-gray-800">WhatsApp</span>
+    <span class="text-white">WhatsApp</span>
 
     <!-- TikTok -->
-    <a "@idealepeinturetg" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
+    <a href="https://www.tiktok.com/@idealepeinturetg" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
         <i class="fab fa-tiktok"></i>
     </a>
-    <span class="text-gray-800">idealepeinturetg</span>
+    <span class="text-white">idealepeinturetg</span>
 </div>
 
 <!-- WhatsApp Popup (Hidden by default) -->
@@ -754,7 +753,7 @@ Chez nous, chaque couleur reflète notre engagement, notre créativité et notre
             </li>
             <li>
                 <button onclick="redirectToWhatsapp('98723961')" class="w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700">
-                    +98723961
+                    +22898723961
                 </button>
             </li>
         </ul>
@@ -763,6 +762,27 @@ Chez nous, chaque couleur reflète notre engagement, notre créativité et notre
         </button>
     </div>
 </div>
+
+<!-- JavaScript to handle popup and redirect -->
+<script>
+    // Function to show the WhatsApp popup
+    function showWhatsappPopup() {
+        document.getElementById('whatsapp-popup').classList.remove('hidden');
+    }
+
+    // Function to close the WhatsApp popup
+    function closeWhatsappPopup() {
+        document.getElementById('whatsapp-popup').classList.add('hidden');
+    }
+
+    // Function to redirect to WhatsApp with the selected number
+    function redirectToWhatsapp(number) {
+        const message = encodeURIComponent("Bonjour ! Je vous contacte depuis votre site fictif.");
+        window.open(`https://wa.me/${number}?text=${message}`, '_blank');
+        closeWhatsappPopup(); // Close popup after redirect
+    }
+</script>
+
 
 <!-- JavaScript to handle popup and redirect -->
 <script>
