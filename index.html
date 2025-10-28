@@ -718,17 +718,69 @@ Chez nous, chaque couleur reflète notre engagement, notre créativité et notre
         </div>
         <p class="text-gray-400 mb-4">Votre spécialiste en peintures intérieures et extérieures depuis 2019.</p>
         <div class="flex space-x-4">
-          <a href="@Ideale Peinture" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-8 h-8 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-blue-600">
-  <i class="fab fa-facebook-f"></i>
-</a>
+<!-- Social Media Links with Usernames -->
+<div class="flex space-x-4">
+    <!-- Facebook -->
+    <a href="@Ideale Peinture" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-8 h-8 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-blue-600">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <span class="text-gray-800">Ideale Peinture</span>
 
-<a href="https://wa.me/+22890792752/98723961?text=Bonjour%20%21%20Je%20vous%20contacte%20depuis%20votre%20site%20fictif" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="w-8 h-8 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-green-600">
-  <i class="fab fa-whatsapp"></i>
-</a>
+    <!-- WhatsApp -->
+    <a href="#" onclick="showWhatsappPopup()" aria-label="WhatsApp" class="w-8 h-8 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-green-600">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <span class="text-gray-800">WhatsApp</span>
 
-<a href="@idealepeinturetg" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-8 h-8 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-black">
-  <i class="fab fa-tiktok"></i>
-</a>
+    <!-- TikTok -->
+    <a href="@idealepeinturetg" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-8 h-8 bg-gray-700 text-white rounded-full flex items-center justify-center hover:bg-black">
+        <i class="fab fa-tiktok"></i>
+    </a>
+    <span class="text-gray-800">idealepeinturetg</span>
+</div>
+
+<!-- WhatsApp Popup (Hidden by default) -->
+<div id="whatsapp-popup" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg w-96">
+        <h2 class="text-xl font-semibold mb-4">Choisissez un numéro WhatsApp</h2>
+        <ul>
+            <li class="mb-4">
+                <button onclick="redirectToWhatsapp('22890792752')" class="w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700">
+                    +22890792752
+                </button>
+            </li>
+            <li>
+                <button onclick="redirectToWhatsapp('98723961')" class="w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700">
+                    +98723961
+                </button>
+            </li>
+        </ul>
+        <button onclick="closeWhatsappPopup()" class="mt-4 w-full bg-gray-500 text-white p-3 rounded-lg hover:bg-gray-600">
+            Fermer
+        </button>
+    </div>
+</div>
+
+<!-- JavaScript to handle popup and redirect -->
+<script>
+    // Function to show the WhatsApp popup
+    function showWhatsappPopup() {
+        document.getElementById('whatsapp-popup').classList.remove('hidden');
+    }
+
+    // Function to close the WhatsApp popup
+    function closeWhatsappPopup() {
+        document.getElementById('whatsapp-popup').classList.add('hidden');
+    }
+
+    // Function to redirect to WhatsApp with the selected number
+    function redirectToWhatsapp(number) {
+        const message = encodeURIComponent("Bonjour ! Je vous contacte depuis votre site fictif.");
+        window.open(`https://wa.me/${number}?text=${message}`, '_blank');
+        closeWhatsappPopup(); // Close popup after redirect
+    }
+</script>
+
 
         </div>
       </div>
