@@ -81,7 +81,7 @@
         .product-image {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
         
@@ -92,60 +92,59 @@
         .image-container {
             overflow: hidden;
             height: 300px;
+            background-color: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800">
     <header class="backdrop-blur-md bg-yellow-300/70 shadow-lg sticky top-0 z-50 border-b border-white/20">
-  <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between md:justify-center py-4">
-
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between md:justify-center py-4">
                 <div class="flex items-center gap-3 md:gap-5 md:mx-auto">
                     <div class="flex items-center">
-                        <div class="flex items-center">
-        <a href="index.html">
-          <img src="images/logo.png" alt="Idéale Peinture" class="h-12 w-auto hover:scale-105 transition-transform duration-200">
-        </a>
-      </div>
+                        <a href="index.html">
+                            <img src="images/logo.png" alt="Idéale Peinture" class="h-12 w-auto hover:scale-105 transition-transform duration-200">
+                        </a>
                     </div>
                     
                     <nav class="hidden md:flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2 shadow-md">
-                    <a href="index.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Accueil</a>
-                    <div class="dropdown relative group">
-                        <button class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100 flex items-center">
-                            Nos peintures <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                        </button>
-                        <div class="dropdown-menu absolute hidden group-hover:block bg-white shadow-xl rounded-xl mt-2 w-64 z-50">
-                            <div class="grid grid-cols-2 gap-6 p-6">
-                                <div>
-                                    <h4 class="font-bold text-[#FFD700] mb-2">Intérieures</h4>
-                                    <ul class="space-y-1">
-                                        <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures mates</a></li>
-                                        <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures satinées</a></li>
-                                        <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures brillantes</a></li>
-                                        <li><a href="spéciale.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures spéciales</a></li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-[#FFD700] mb-2">Extérieures</h4>
-                                    <ul class="space-y-1">
-                                        <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures façade</a></li>
-                                        <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures balcons/terrasses</a></li>
-                                        <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures anti-humidité</a></li>
-                                        <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures protection bois</a></li>
-                                    </ul>
+                        <a href="index.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Accueil</a>
+                        <div class="dropdown relative group">
+                            <button class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100 flex items-center">
+                                Nos peintures <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                            </button>
+                            <div class="dropdown-menu absolute hidden group-hover:block bg-white shadow-xl rounded-xl mt-2 w-64 z-50">
+                                <div class="grid grid-cols-2 gap-6 p-6">
+                                    <div>
+                                        <h4 class="font-bold text-[#FFD700] mb-2">Intérieures</h4>
+                                        <ul class="space-y-1">
+                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures mates</a></li>
+                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures satinées</a></li>
+                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures brillantes</a></li>
+                                            <li><a href="spéciale.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures spéciales</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-[#FFD700] mb-2">Extérieures</h4>
+                                        <ul class="space-y-1">
+                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures façade</a></li>
+                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures balcons/terrasses</a></li>
+                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures anti-humidité</a></li>
+                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures protection bois</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <a href="index.html#nos-realisations" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Réalisations</a>
-                    <a href="index.html#a-propos" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">À propos</a>
-                    <a href="inspiration.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Conseils & inspiration</a>
-                    <a href="contact.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Contact</a>
-                    <a href="devenir distributeur.html" class="ml-2 px-4 py-2 bg-[#FFD700] text-[#e3342f] font-bold rounded-full shadow hover:bg-[#e3342f] hover:text-white transition duration-200">Devenir distributeur</a>
-                </nav>
+                        <a href="index.html#nos-realisations" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Réalisations</a>
+                        <a href="index.html#a-propos" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">À propos</a>
+                        <a href="inspiration.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Conseils & inspiration</a>
+                        <a href="contact.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Contact</a>
+                        <a href="devenir distributeur.html" class="ml-2 px-4 py-2 bg-[#FFD700] text-[#e3342f] font-bold rounded-full shadow hover:bg-[#e3342f] hover:text-white transition duration-200">Devenir distributeur</a>
+                    </nav>
                 </div>
                 
                 <button id="mobile-menu-button" class="md:hidden text-[#e3342f] bg-white rounded-full p-2 shadow hover:bg-yellow-100 transition">
@@ -163,7 +162,6 @@
                         <a href="intérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Intérieures</a>
                         <a href="extérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Extérieures</a>
                         <a href="spéciale.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Spéciales</a>
-                
                     </div>
                 </div>
                 <a href="index.html#nos-realisations" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Réalisations</a>
@@ -175,71 +173,70 @@
         </div>
     </header>
 
-   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <section class="text-center mb-16" data-aos="fade-up">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Découvrez nos peintures extérieures</h1>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Protégez et embellissez vos surfaces extérieures avec nos produits haute qualité.</p>
-    </section>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <section class="text-center mb-16" data-aos="fade-up">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Découvrez nos peintures extérieures</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Protégez et embellissez vos surfaces extérieures avec nos produits haute qualité.</p>
+        </section>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
-        <!-- Peinture Façades -->
-        <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
-            <div class="image-container">
-                <img src="images/IDEALEPeintures façades.png" alt="Peintures façades" class="product-image w-full h-48 object-cover">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
+            <!-- Peinture Façades -->
+            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="100">
+                <div class="image-container">
+                    <img src="images/IDEALEPeintures façades.png" alt="Peintures façades" class="product-image">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Peintures façades</h3>
+                    <p class="text-gray-600 mb-4">La peinture façade protège durablement vos murs extérieurs tout en leur offrant une finition esthétique résistante aux intempéries et aux UV.</p>
+                    <a href="#" data-product="Peintures façades" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out">
+                        Commander
+                    </a>
+                </div>
             </div>
-            <div class="p-6">
-                <h3 class="text-xl font-semibold mb-2">Peintures façades</h3>
-                <p class="text-gray-600 mb-4">La peinture façade protège durablement vos murs extérieurs tout en leur offrant une finition esthétique résistante aux intempéries et aux UV.</p>
-                <a href="#" data-product="Peintures façades" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out">
-                    Commander
-                </a>
+
+            <!-- Peinture Balcon/Terrasse -->
+            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
+                <div class="image-container">
+                    <img src="images/IDEALEPEINTUE BALCON - Copie.png" alt="Peintures balcon/terrasse" class="product-image">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Peintures balcon/terrasse</h3>
+                    <p class="text-gray-600 mb-4">Transformez votre balcon ou terrasse en un espace élégant et durable grâce à une peinture haute performance qui résiste aux intempéries, aux UV et à l'humidité.</p>
+                    <a href="#" data-product="Peintures balcon/terrasse" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out">
+                        Commander
+                    </a>
+                </div>
+            </div>
+
+            <!-- Peinture Anti-Humidité -->
+            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="300">
+                <div class="image-container">
+                    <img src="images/IDEALEPeintures anti-humidité - Copie.png" alt="Peintures anti-humidité" class="product-image">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Peintures anti-humidité</h3>
+                    <p class="text-gray-600 mb-4">Elle s'applique comme une peinture classique, en intérieur ou extérieur, et peut servir de sous-couche ou de finition décorative, selon le produit choisi.</p>
+                    <a href="#" data-product="Peintures anti-humidité" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out">
+                        Commander
+                    </a>
+                </div>
+            </div>
+
+            <!-- Peinture Protection Bois -->
+            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="400">
+                <div class="image-container">
+                    <img src="images/IDEALEPeintures protection bois - Copie.png" alt="Peintures protection bois" class="product-image">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Peintures protection bois</h3>
+                    <p class="text-gray-600 mb-4">Peintures de conservation : anti-humidité, isolantes, etc. Protégez et embellissez vos structures en bois extérieures.</p>
+                    <a href="#" data-product="Peintures protection bois" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out">
+                        Commander
+                    </a>
+                </div>
             </div>
         </div>
-
-        <!-- Peinture Balcon/Terrasse -->
-        <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-            <div class="image-container">
-                <img src="images/IDEALEPEINTUE BALCON - Copie.png" alt="Peintures balcon/terrasse" class="product-image w-full h-48 object-cover">
-            </div>
-            <div class="p-6">
-                <h3 class="text-xl font-semibold mb-2">Peintures balcon/terrasse</h3>
-                <p class="text-gray-600 mb-4">Transformez votre balcon ou terrasse en un espace élégant et durable grâce à une peinture haute performance qui résiste aux intempéries, aux UV et à l'humidité.</p>
-                <a href="#" data-product="Peintures balcon/terrasse" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out">
-                    Commander
-                </a>
-            </div>
-        </div>
-
-        <!-- Peinture Anti-Humidité -->
-        <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="300">
-            <div class="image-container">
-                <img src="images/IDEALEPeintures anti-humidité - Copie.png" alt="Peintures anti-humidité" class="product-image w-full h-48 object-cover">
-            </div>
-            <div class="p-6">
-                <h3 class="text-xl font-semibold mb-2">Peintures anti-humidité</h3>
-                <p class="text-gray-600 mb-4">Elle s'applique comme une peinture classique, en intérieur ou extérieur, et peut servir de sous-couche ou de finition décorative, selon le produit choisi.</p>
-                <a href="#" data-product="Peintures anti-humidité" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out">
-                    Commander
-                </a>
-            </div>
-        </div>
-
-        <!-- Peinture Protection Bois -->
-        <div class="category-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="400">
-            <div class="image-container">
-                <img src="images/IDEALEPeintures protection bois - Copie.png" alt="Peintures protection bois" class="product-image w-full h-48 object-cover">
-            </div>
-            <div class="p-6">
-                <h3 class="text-xl font-semibold mb-2">Peintures protection bois</h3>
-                <p class="text-gray-600 mb-4">Peintures de conservation : anti-humidité, isolantes, etc. Protégez et embellissez vos structures en bois extérieures.</p>
-                <a href="#" data-product="Peintures protection bois" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 ease-in-out">
-                    Commander
-                </a>
-            </div>
-        </div>
-    </div>
-</main>
-
+    </main>
 
     <div id="order-choice-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 transition-opacity duration-300">
         <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full relative" data-aos="zoom-in" data-aos-duration="400">
@@ -287,7 +284,6 @@
             </div>
         </div>
     </div>
-
 
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
@@ -359,17 +355,14 @@
     </footer>
 
     <script>
-        // Initialisation des animations AOS
         AOS.init({
             duration: 800,
             easing: 'ease-in-out',
             once: true
         });
 
-        // Initialisation des icônes Feather
         feather.replace();
 
-        // Gestion du menu mobile
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -384,94 +377,38 @@
             });
         }
 
-        // Toggle submenus in mobile
         function toggleSubMenu(id) {
             const submenu = document.getElementById(id);
             submenu.classList.toggle('hidden');
         }
 
-        // --- SCRIPT MODIFIÉ POUR LA FENÊTRE MODALE AVEC FORMSPREE ---
-
         const whatsappNumber = '22893807047';
         
-        // Éléments de la modale
         const orderModal = document.getElementById('order-choice-modal');
         const closeModalButton = document.getElementById('close-modal-button');
         
-        // Vues de la modale
         const choiceView = document.getElementById('choice-view');
         const emailFormView = document.getElementById('email-form-view');
 
-        // Boutons et champs
         const modalWhatsappButton = document.getElementById('modal-whatsapp-button');
         const emailChoiceButton = document.getElementById('modal-email-choice-button');
         const backToChoiceButton = document.getElementById('back-to-choice-button');
         const hiddenProductInput = document.getElementById('form-product-name');
         const formMessageTextarea = document.getElementById('message');
 
-        // Fonction pour réinitialiser et fermer la modale
         function closeModal() {
             orderModal.classList.add('hidden');
-            // S'assurer que la vue par défaut est affichée la prochaine fois
             setTimeout(() => {
                 emailFormView.classList.add('hidden');
                 choiceView.classList.remove('hidden');
-            }, 300); // Délai pour la transition
+            }, 300);
         }
 
-        // Ouvrir la modale au clic sur un bouton "Commander"
         document.querySelectorAll('.order-button').forEach(button => {
             button.addEventListener('click', event => {
                 event.preventDefault();
                 const productName = button.dataset.product || 'une peinture Idéale Peinture';
                 
-                // Sauvegarder le nom du produit sur la modale
                 orderModal.dataset.product = productName;
                 
-                // Afficher la modale
                 orderModal.classList.remove('hidden');
-            });
-        });
-
-        // Action du bouton WhatsApp
-        modalWhatsappButton.addEventListener('click', event => {
-            event.preventDefault();
-            const productName = orderModal.dataset.product;
-            const message = encodeURIComponent(`Bonjour, je souhaite commander ${productName} via votre site Idéale Peinture.`);
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
-            window.open(whatsappUrl, '_blank');
-            closeModal();
-        });
-
-        // Action pour passer à la vue formulaire
-        emailChoiceButton.addEventListener('click', () => {
-            const productName = orderModal.dataset.product;
-
-            // Mettre à jour le champ caché du formulaire
-            hiddenProductInput.value = productName;
-            
-            // Pré-remplir le message
-            formMessageTextarea.value = `Bonjour, je souhaiterais passer commande pour le produit : ${productName}.`;
-
-            // Changer de vue
-            choiceView.classList.add('hidden');
-            emailFormVixew.classList.remove('hidden');
-        });
-
-        // Action pour revenir à la vue de choix
-        backToChoiceButton.addEventListener('click', () => {
-            emailFormView.classList.add('hidden');
-            choiceView.classList.remove('hidden');
-        });
-
-        // Fermer la modale en cliquant sur le bouton X ou à l'extérieur
-        closeModalButton.addEventListener('click', closeModal);
-        orderModal.addEventListener('click', event => {
-            if (event.target === orderModal) {
-                closeModal();
-            }
-        });
-
-    </script>
-</body>
-</html>
