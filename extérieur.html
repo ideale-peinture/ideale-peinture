@@ -1,22 +1,100 @@
-<!-- Header -->
-<header class="backdrop-blur-md bg-yellow-300/70 shadow-lg sticky top-0 z-50 border-b border-white/20">
-    <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between py-4">
-            <div class="flex items-center gap-3 md:gap-5 md:mx-auto">
-                <div class="flex items-center">
-                    <a href="index.html">
-                        <div class="h-12 w-12 bg-white rounded-full flex items-center justify-center">
-                            <!-- Logo PNG -->
-                            <img src="images/logo.png" alt="Logo" class="h-10 w-10 object-contain">
-                        </div>
-                    </a>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idéale Peinture - Nos peintures extérieures</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+        }
+        
+        .category-card {
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .mobile-menu.open {
+            max-height: 1000px;
+        }
+        
+        .image-container {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .product-image {
+            transform: scale(1.08);
+        }
+        
+        .placeholder-icon {
+            font-size: 5rem;
+            color: #9ca3af;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="backdrop-blur-md bg-yellow-300/70 shadow-lg sticky top-0 z-50 border-b border-white/20">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between md:justify-center py-4">
+                <div class="flex items-center gap-3 md:gap-5 md:mx-auto">
+                    <div class="flex items-center">
+                        <a href="index.html">
+                            <div class="h-12 w-12 bg-white rounded-full flex items-center justify-center">
+                                <!-- Logo PNG -->
+                                <img src="images/logo.png" alt="Logo" class="h-10 w-10 object-contain">
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <!-- Autres éléments dans l'entête -->
             </div>
         </div>
-    </div>
-</header>
-
+    </header>
+    
+    <!-- Contenu de la page ici       
                     <nav class="hidden md:flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2 shadow-md">
                         <a href="index.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100">Accueil</a>
                         <div class="dropdown relative group">
@@ -76,7 +154,7 @@
             <!-- Peinture Façades -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <img src="images/IDEALEPeintures façades.png" alt="Peintures façades" class="product-image">
+                    <i class="fas fa-paint-roller placeholder-icon"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures façades</h3>
@@ -90,7 +168,7 @@
             <!-- Peinture Balcon/Terrasse -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <img src="images/IDEALEPEINTUE BALCON - Copie.png" alt="Peintures balcon/terrasse" class="product-image">
+                    <i class="fas fa-home placeholder-icon"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures balcon/terrasse</h3>
@@ -104,7 +182,7 @@
             <!-- Peinture Anti-Humidité -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <img src="images/IDEALEPeintures anti-humidité - Copie.png" alt="Peintures anti-humidité" class="product-image">
+                    <i class="fas fa-shield-alt placeholder-icon"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures anti-humidité</h3>
@@ -118,7 +196,7 @@
             <!-- Peinture Protection Bois -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <img src="images/IDEALEPeintures protection bois - Copie.png" alt="Peintures protection bois" class="product-image">
+                    <i class="fas fa-tree placeholder-icon"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures protection bois</h3>
@@ -180,19 +258,24 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4 gap-3">
-                        <div class="w-14 h-14 bg-white border-4 border-yellow-400 flex items-center justify-center rounded-full shadow-lg">
-                            <i class="fas fa-paint-brush text-2xl text-red-600"></i>
-                        </div>
-                        <span class="flex flex-col leading-tight">
-                            <span class="text-2xl font-extrabold text-white">Idéale</span>
-                            <span class="text-lg font-bold text-red-600">Peinture</span>
-                        </span>
+   <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center mb-4 gap-3">
+                    <div class="w-14 h-14 bg-white border-4 border-yellow-400 flex items-center justify-center rounded-full shadow-lg">
+                        <!-- Logo PNG -->
+                        <img src="images/logo.png" alt="Logo" class="h-12 w-12 object-contain">
                     </div>
+                    <span class="flex flex-col leading-tight">
+                        <span class="text-2xl font-extrabold text-white">Idéale</span>
+                        <span class="text-lg font-bold text-red-600">Peinture</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
                     <p class="text-gray-400 mb-4">Votre spécialiste en peintures intérieures et extérieures depuis 2019.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition">
