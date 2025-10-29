@@ -245,14 +245,25 @@
         <i class="fas fa-shopping-cart text-blue-600 text-2xl"></i>
       </div>
       <h2 class="text-2xl font-bold mb-2">Commander ce produit</h2>
-      <p class="text-gray-600" id="productInfo">Remplissez le formulaire ci-dessous</p>
+      <p class="text-gray-600" id="productInfo">Choisissez votre méthode de commande :</p>
+    </div>
+    
+    <div class="space-y-4 mb-6">
+      <div>
+        <label for="orderMethod" class="block text-sm font-medium text-gray-700 mb-2">Méthode de commande *</label>
+        <select id="orderMethod" name="orderMethod" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200">
+          <option value="email">Email (Formulaire)</option>
+          <option value="whatsapp">WhatsApp</option>
+        </select>
+      </div>
     </div>
     
     <form id="orderForm" action="https://getform.io/f/arogmwwb" method="POST">
       <input type="hidden" id="productName" name="product" value="">
       <input type="hidden" name="type" value="Commande Promotion">
       
-      <div class="space-y-4">
+      <div id="emailForm" class="space-y-4">
+        <!-- Formulaire Email -->
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Votre nom complet *</label>
           <input type="text" id="name" name="name" required 
@@ -302,6 +313,20 @@
         </div>
       </div>
 
+      <!-- WhatsApp Popup (Hidden by default) -->
+      <div id="whatsappForm" class="hidden space-y-4">
+        <!-- WhatsApp Choice -->
+        <h3 class="text-lg font-semibold text-center">Choisissez un numéro WhatsApp</h3>
+        <div class="flex justify-center space-x-4">
+          <button onclick="redirectToWhatsapp('22890792752')" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700">
+            +22890792752
+          </button>
+          <button onclick="redirectToWhatsapp('98723961')" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700">
+            +22898723961
+          </button>
+        </div>
+      </div>
+
       <div class="mt-4 p-4 bg-gray-50 rounded-lg">
         <p class="text-xs text-gray-600 text-center flex items-center justify-center">
           <i class="fas fa-shield-alt mr-2 text-green-600"></i>
@@ -311,7 +336,32 @@
     </form>
   </div>
 </div>
+
+<!-- JavaScript to handle popup and redirect -->
+<script>
+  // Handle form visibility based on selected order method
+  const orderMethod = document.getElementById('orderMethod');
+  const emailForm = document.getElementById('emailForm');
+  const whatsappForm = document.getElementById('whatsappForm');
   
+  orderMethod.addEventListener('change', function() {
+    if (orderMethod.value === 'whatsapp') {
+      emailForm.classList.add('hidden');
+      whatsappForm.classList.remove('hidden');
+    } else {
+      whatsappForm.classList.add('hidden');
+      emailForm.classList.remove('hidden');
+    }
+  });
+
+  // Function to redirect to WhatsApp with the selected number
+  function redirectToWhatsapp(number) {
+    const message = encodeURIComponent("Bonjour ! Je vous contacte depuis votre site fictif.");
+    window.open(`https://wa.me/${number}?text=${message}`, '_blank');
+    document.getElementById('orderModal').classList.add('hidden'); // Close modal after redirect
+  }
+</script>
+
 <!-- Section À propos -->
 <section id="a-propos" class="py-10 text-center bg-white">
   <div class="container mx-auto px-6">
@@ -441,9 +491,9 @@ Chez nous, chaque couleur reflète notre engagement, notre créativité et notre
         <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
           <i class="fas fa-home text-blue-600 text-xl"></i>
         </div>
-        <h3 class="text-xl font-bold mb-2">Devis gratuit à domicile</h3>
-        <p class="text-gray-600 mb-4">Un professionnel se déplace chez vous pour évaluer vos besoins et établir un devis précis et sans engagement.</p>
-        <a href="demander un devis.html" class="text-blue-600 font-medium hover:underline">Demander un devis</a>
+        <h3 class="text-xl font-bold mb-2">Devis</h3>
+        <p class="text-gray-600 mb-4">Cliquez sur le bouton « Demandez un devis » en haut de la page et remplissez le formulaire pour recevoir votre estimation personnalisée, gratuitement et sans engagement.</p>
+        
       </div>
       
       <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
@@ -451,8 +501,8 @@ Chez nous, chaque couleur reflète notre engagement, notre créativité et notre
           <i class="fas fa-truck text-blue-600 text-xl"></i>
         </div>
         <h3 class="text-xl font-bold mb-2">Livraison express</h3>
-        <p class="text-gray-600 mb-4">Recevez vos produits en 24h pour les commandes passées avant 12h, partout au TOGO.</p>
-        <a href="livraisons.html" class="text-blue-600 font-medium hover:underline">Voir les conditions</a>
+        <p class="text-gray-600 mb-4">Nous disposons de canaux de distribution fiables pour vous livrer rapidement après chaque achat, où que vous soyez.</p>
+        
       </div>
       
       <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
@@ -461,7 +511,7 @@ Chez nous, chaque couleur reflète notre engagement, notre créativité et notre
         </div>
         <h3 class="text-xl font-bold mb-2">Application professionnelle</h3>
         <p class="text-gray-600 mb-4">Nos peintres qualifiés réalisent pour vous une mise en peinture parfaite, avec des finitions impeccables.</p>
-        <a href="tarifs.html" class="text-blue-600 font-medium hover:underline">Voir les tarifs</a>
+        
       </div>
     </div>
   </div>
