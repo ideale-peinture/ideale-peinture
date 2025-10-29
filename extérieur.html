@@ -1,147 +1,130 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idéale Peinture - Nos peintures extérieures</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f9fafb;
-            color: #1f2937;
-        }
-        
-        .category-card {
-            transition: all 0.3s ease;
-        }
-        
-        .category-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-        }
-        
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-        
-        .mobile-menu {
-            transition: all 0.3s ease;
-            max-height: 0;
-            overflow: hidden;
-        }
-        
-        .mobile-menu.open {
-            max-height: 1000px;
-        }
-        
-        .image-container {
-            width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .category-card:hover .product-image {
-            transform: scale(1.08);
-        }
-        
-        .placeholder-icon {
-            font-size: 5rem;
-            color: #9ca3af;
-            opacity: 0.5;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idéale Peinture - Nouveaux Produits</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #6b7280;
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      color: #374151;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #chat-window {
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    #chat-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #chat-messages::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    #chat-messages::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 10px;
+    }
+
+    #chat-messages::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+  </style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="backdrop-blur-md bg-yellow-300/70 shadow-lg sticky top-0 z-50 border-b border-white/20">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between md:justify-center py-4">
-                <div class="flex items-center gap-3 md:gap-5 md:mx-auto">
-                    <div class="flex items-center">
-                        <a href="index.html">
-                            <div class="h-12 w-12 bg-white rounded-full flex items-center justify-center">
-                                <!-- Logo PNG -->
-                                <img src="images/logo.png" alt="Logo" class="h-10 w-10 object-contain">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Contenu de la page ici       
-                    <nav class="hidden md:flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2 shadow-md">
-                        <a href="index.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100">Accueil</a>
-                        <div class="dropdown relative group">
-                            <button class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100 flex items-center">
-                                Nos peintures <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                            </button>
-                            <div class="dropdown-menu absolute hidden group-hover:block bg-white shadow-xl rounded-xl mt-2 w-64 z-50">
-                                <div class="grid grid-cols-2 gap-6 p-6">
-                                    <div>
-                                        <h4 class="font-bold text-yellow-500 mb-2">Intérieures</h4>
-                                        <ul class="space-y-1">
-                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Peintures mates</a></li>
-                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Peintures satinées</a></li>
-                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Peintures brillantes</a></li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-yellow-500 mb-2">Extérieures</h4>
-                                        <ul class="space-y-1">
-                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Peintures façade</a></li>
-                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Peintures balcons</a></li>
-                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Anti-humidité</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="index.html#nos-realisations" class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100">Réalisations</a>
-                        <a href="index.html#a-propos" class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100">À propos</a>
-                        <a href="contact.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100">Contact</a>
-                        <a href="devenir distributeur.html" class="ml-2 px-4 py-2 bg-yellow-400 text-red-600 font-bold rounded-full shadow hover:bg-red-600 hover:text-white transition duration-200">Devenir distributeur</a>
-                    </nav>
-                </div>
-                
-                <button id="mobile-menu-button" class="md:hidden text-red-600 bg-white rounded-full p-2 shadow hover:bg-yellow-100 transition">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-            
-            <div id="mobile-menu" class="mobile-menu md:hidden bg-white/90 rounded-xl shadow-lg mt-2 p-4">
-                <a href="index.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-red-600 hover:bg-yellow-100 transition">Accueil</a>
-                <a href="intérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-red-600 hover:bg-yellow-100 transition">Peintures Intérieures</a>
-                <a href="extérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-red-600 hover:bg-yellow-100 transition">Peintures Extérieures</a>
-                <a href="contact.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-red-600 hover:bg-yellow-100 transition">Contact</a>
-            </div>
-        </div>
-    </header>
+
+<body class="font-sans antialiased text-gray-800">
+
+<!-- HEADER -->
+<header class="backdrop-blur-md bg-yellow-300/70 shadow-lg sticky top-0 z-50 border-b border-white/20">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between md:justify-center py-4">
+      <div class="flex items-center">
+        <a href="index.html">
+          <img src="images/logo.png" alt="Idéale Peinture" class="h-12 w-auto hover:scale-105 transition-transform duration-200">
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2 shadow-md">
+        <a href="index.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">Accueil</a>
+        <a href="#nos-categories" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">Nos peintures</a>
+        <a href="#nos-realisations" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">Réalisations</a>
+        <a href="#a-propos" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">À propos</a>
+        <a href="inspiration.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">Conseils & inspiration</a>
+        <a href="contact.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] rounded-full hover:bg-yellow-100 transition">Contact</a>
+        <a href="devenir distributeur.html" class="ml-2 px-4 py-2 bg-[#FFD700] text-[#e3342f] font-bold rounded-full shadow hover:bg-[#e3342f] hover:text-white transition">Devenir distributeur</a>
+      </nav>
+
+      <button id="mobile-menu-button" class="md:hidden text-[#e3342f] bg-white rounded-full p-2 shadow hover:bg-yellow-100 transition">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white/90 rounded-xl shadow-lg mt-2 p-4">
+      <a href="index.html" class="block px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 rounded-full transition">Accueil</a>
+      <a href="#nos-categories" class="block px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 rounded-full transition">Nos peintures</a>
+      <a href="#nos-realisations" class="block px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 rounded-full transition">Réalisations</a>
+      <a href="#a-propos" class="block px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 rounded-full transition">À propos</a>
+      <a href="inspiration.html" class="block px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 rounded-full transition">Conseils & inspiration</a>
+      <a href="contact.html" class="block px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 rounded-full transition">Contact</a>
+      <a href="devenir distributeur.html" class="block px-4 py-2 font-bold bg-[#FFD700] text-[#e3342f] mt-2 shadow hover:bg-[#e3342f] hover:text-white rounded-full transition">Devenir distributeur</a>
+    </div>
+  </div>
+</header>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -154,7 +137,7 @@
             <!-- Peinture Façades -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <i class="fas fa-paint-roller placeholder-icon"></i>
+                    <img src="images/IDEALEPeintures façades.png" alt="Peintures façades" class="product-image">
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures façades</h3>
@@ -168,7 +151,7 @@
             <!-- Peinture Balcon/Terrasse -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <i class="fas fa-home placeholder-icon"></i>
+                    <img src="images/IDEALEPEINTUE BALCON - Copie.png" alt="Peintures balcon/terrasse" class="product-image">
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures balcon/terrasse</h3>
@@ -182,7 +165,7 @@
             <!-- Peinture Anti-Humidité -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <i class="fas fa-shield-alt placeholder-icon"></i>
+                    <img src="images/IDEALEPeintures anti-humidité - Copie.png" alt="Peintures anti-humidité" class="product-image">
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures anti-humidité</h3>
@@ -196,7 +179,7 @@
             <!-- Peinture Protection Bois -->
             <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <i class="fas fa-tree placeholder-icon"></i>
+                    <img src="images/IDEALEPeintures protection bois - Copie.png" alt="Peintures protection bois" class="product-image">
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures protection bois</h3>
@@ -259,72 +242,132 @@
 
     <!-- Footer -->
    <footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-                <div class="flex items-center mb-4 gap-3">
-                    <div class="w-14 h-14 bg-white border-4 border-yellow-400 flex items-center justify-center rounded-full shadow-lg">
-                        <!-- Logo PNG -->
-                        <img src="images/logo.png" alt="Logo" class="h-12 w-12 object-contain">
-                    </div>
-                    <span class="flex flex-col leading-tight">
-                        <span class="text-2xl font-extrabold text-white">Idéale</span>
-                        <span class="text-lg font-bold text-red-600">Peinture</span>
-                    </span>
-                </div>
-            </div>
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center mb-4 gap-3">
+          <div class="w-14 h-14 bg-white border-4 border-[#FFD700] flex items-center justify-center rounded-full shadow-lg overflow-hidden">
+            <img src="images/logo.png" alt="Logo Idéale Peinture" class="w-full h-full object-cover rounded-full">
+          </div>
+          <span class="flex flex-row items-end leading-tight">
+            <span class="text-2xl font-extrabold text-white tracking-tight mr-2">Idéale</span>
+            <span class="text-lg font-bold text-[#e3342f] tracking-wide">Peinture</span>
+          </span>
         </div>
-    </div>
+        <p class="text-gray-400 mb-4">Votre spécialiste en peintures intérieures et extérieures depuis 2019.</p>
+        <div class="flex space-x-4">
+          <!-- Social Media Links with Usernames -->
+          <div class="flex space-x-4">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <span class="text-white">Ideale Peinture</span>
 
-                    <p class="text-gray-400 mb-4">Votre spécialiste en peintures intérieures et extérieures depuis 2019.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Nos produits</h3>
-                    <ul class="space-y-2">
-                        <li><a href="intérieur.html" class="text-gray-400 hover:text-white transition">Peintures Intérieures</a></li>
-                        <li><a href="extérieur.html" class="text-gray-400 hover:text-white transition">Peintures Extérieures</a></li>
-                        <li><a href="spéciale.html" class="text-gray-400 hover:text-white transition">Peintures Spéciales</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Nos services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Conseil couleur</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Devis gratuit</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Livraison</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Application pro</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Informations</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">À propos</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Nos réalisations</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
-                        <li><a href="devenir distributeur.html" class="text-gray-400 hover:text-white transition">Devenir distributeur</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-400">© 2025 OPEN SMILE AFRICA. Tous droits réservés.</p>
-            </div>
+            <!-- WhatsApp -->
+            <a href="#" onclick="showWhatsappPopup()" aria-label="WhatsApp" class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <span class="text-white">WhatsApp</span>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <span class="text-white">idealepeinture</span>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-8 h-8 bg-pink-600 text-white rounded-full flex items-center justify-center transition-transform transform hover:scale-110">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <span class="text-white">Ideale Peinture</span>
+          </div>
         </div>
-    </footer>
+      </div>
+      
+      <div>
+        <h3 class="text-lg font-bold mb-4">Nos produits</h3>
+        <ul class="space-y-2">
+          <li><a href="intérieur.html" class="text-gray-400 hover:text-white">Peintures Intérieures</a></li>
+          <li><a href="extérieur.html" class="text-gray-400 hover:text-white">Peintures Extérieures</a></li>
+          <li><a href="spéciale.html" class="text-gray-400 hover:text-white">Peintures Spéciales</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-lg font-bold mb-4">Nos services</h3>
+        <ul class="space-y-2">
+          <li><a href="" class="text-gray-400 hover:text-white">Conseil couleur</a></li>
+          <li><a href="" class="text-gray-400 hover:text-white">Devis</a></li>
+          <li><a href="" class="text-gray-400 hover:text-white">Livraison</a></li>
+          <li><a href="" class="text-gray-400 hover:text-white">Application pro</a></li>
+          <li><a href="" class="text-gray-400 hover:text-white">Rénovation complète</a></li>
+          <li><a href="" class="text-gray-400 hover:text-white">Service après-vente</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-lg font-bold mb-4">Informations</h3>
+        <ul class="space-y-2">
+          <li><a href="#a-propos" class="text-gray-400 hover:text-white">À propos</a></li>
+          <li><a href="#nos-realisations" class="text-gray-400 hover:text-white">Nos réalisations</a></li>
+          <li><a href="inspiration.html" class="text-gray-400 hover:text-white">Conseils & inspiration</a></li>
+          <li><a href="devenir distributeur.html" class="text-gray-400 hover:text-white">Devenir distributeur</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-400 mb-4 md:mb-0">© 2025 OPEN SMILE AFRICA. Tous droits réservés.</p>
+      <div class="flex space-x-6">
+        <!-- Links or icons here -->
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Popup (Hidden by default) -->
+<div id="whatsapp-popup" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg w-96">
+        <h2 class="text-xl font-semibold mb-4">Choisissez un numéro WhatsApp</h2>
+        <ul>
+            <li class="mb-4">
+                <button onclick="redirectToWhatsapp('22890792752')" class="w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700">
+                    +22890792752
+                </button>
+            </li>
+            <li>
+                <button onclick="redirectToWhatsapp('98723961')" class="w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700">
+                    +22898723961
+                </button>
+            </li>
+        </ul>
+        <button onclick="closeWhatsappPopup()" class="mt-4 w-full bg-gray-500 text-white p-3 rounded-lg hover:bg-gray-600">
+            Fermer
+        </button>
+    </div>
+</div>
+
+<!-- JavaScript to handle popup and redirect -->
+<script>
+    // Function to show the WhatsApp popup
+    function showWhatsappPopup() {
+        document.getElementById('whatsapp-popup').classList.remove('hidden');
+    }
+
+    // Function to close the WhatsApp popup
+    function closeWhatsappPopup() {
+        document.getElementById('whatsapp-popup').classList.add('hidden');
+    }
+
+    // Function to redirect to WhatsApp with the selected number
+    function redirectToWhatsapp(number) {
+        const message = encodeURIComponent("Bonjour ! Je vous contacte depuis votre site fictif.");
+        window.open(`https://wa.me/${number}?text=${message}`, '_blank');
+        closeWhatsappPopup(); // Close popup after redirect
+    }
+</script>
+
 
     <!-- Chat Widget -->
     <div class="fixed bottom-6 right-6 z-50">
