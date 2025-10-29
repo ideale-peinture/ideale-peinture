@@ -7,11 +7,16 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
         body {
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
@@ -50,7 +55,6 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border-radius: 0.75rem 0.75rem 0 0;
         }
         
         .product-image {
@@ -64,28 +68,14 @@
             transform: scale(1.08);
         }
         
-        .placeholder-image {
-            background: linear-gradient(45deg, #f3f4f6, #e5e7eb, #f3f4f6);
-            background-size: 200% 200%;
-            animation: gradientAnimation 3s ease infinite;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .placeholder-icon {
+            font-size: 5rem;
             color: #9ca3af;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-        
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            opacity: 0.5;
         }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800">
+<body>
     <!-- Header -->
     <header class="backdrop-blur-md bg-yellow-300/70 shadow-lg sticky top-0 z-50 border-b border-white/20">
         <div class="container mx-auto px-4">
@@ -93,142 +83,121 @@
                 <div class="flex items-center gap-3 md:gap-5 md:mx-auto">
                     <div class="flex items-center">
                         <a href="index.html">
-                            <img src="images/logo.png" alt="Idéale Peinture" class="h-12 w-auto hover:scale-105 transition-transform duration-200">
+                            <div class="h-12 w-12 bg-white rounded-full flex items-center justify-center">
+                                <i class="fas fa-paint-brush text-2xl text-yellow-500"></i>
+                            </div>
                         </a>
                     </div>
                     
                     <nav class="hidden md:flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2 shadow-md">
-                        <a href="index.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Accueil</a>
+                        <a href="index.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100">Accueil</a>
                         <div class="dropdown relative group">
-                            <button class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100 flex items-center">
+                            <button class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100 flex items-center">
                                 Nos peintures <i class="fas fa-chevron-down ml-2 text-xs"></i>
                             </button>
                             <div class="dropdown-menu absolute hidden group-hover:block bg-white shadow-xl rounded-xl mt-2 w-64 z-50">
                                 <div class="grid grid-cols-2 gap-6 p-6">
                                     <div>
-                                        <h4 class="font-bold text-[#FFD700] mb-2">Intérieures</h4>
+                                        <h4 class="font-bold text-yellow-500 mb-2">Intérieures</h4>
                                         <ul class="space-y-1">
-                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures mates</a></li>
-                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures satinées</a></li>
-                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures brillantes</a></li>
-                                            <li><a href="spéciale.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures spéciales</a></li>
+                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Peintures mates</a></li>
+                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Peintures satinées</a></li>
+                                            <li><a href="intérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Peintures brillantes</a></li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 class="font-bold text-[#FFD700] mb-2">Extérieures</h4>
+                                        <h4 class="font-bold text-yellow-500 mb-2">Extérieures</h4>
                                         <ul class="space-y-1">
-                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures façade</a></li>
-                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures balcons/terrasses</a></li>
-                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures anti-humidité</a></li>
-                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-[#e3342f] transition">Peintures protection bois</a></li>
+                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Peintures façade</a></li>
+                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Peintures balcons</a></li>
+                                            <li><a href="extérieur.html" class="block py-1 text-gray-700 hover:text-red-600 transition">Anti-humidité</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <a href="index.html#nos-realisations" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Réalisations</a>
-                        <a href="index.html#a-propos" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">À propos</a>
-                        <a href="inspiration.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Conseils & inspiration</a>
-                        <a href="contact.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-[#e3342f] transition duration-200 rounded-full hover:bg-yellow-100">Contact</a>
-                        <a href="devenir distributeur.html" class="ml-2 px-4 py-2 bg-[#FFD700] text-[#e3342f] font-bold rounded-full shadow hover:bg-[#e3342f] hover:text-white transition duration-200">Devenir distributeur</a>
+                        <a href="index.html#nos-realisations" class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100">Réalisations</a>
+                        <a href="index.html#a-propos" class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100">À propos</a>
+                        <a href="contact.html" class="px-4 py-2 font-semibold text-gray-700 hover:text-red-600 transition duration-200 rounded-full hover:bg-yellow-100">Contact</a>
+                        <a href="devenir distributeur.html" class="ml-2 px-4 py-2 bg-yellow-400 text-red-600 font-bold rounded-full shadow hover:bg-red-600 hover:text-white transition duration-200">Devenir distributeur</a>
                     </nav>
                 </div>
                 
-                <button id="mobile-menu-button" class="md:hidden text-[#e3342f] bg-white rounded-full p-2 shadow hover:bg-yellow-100 transition">
+                <button id="mobile-menu-button" class="md:hidden text-red-600 bg-white rounded-full p-2 shadow hover:bg-yellow-100 transition">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
             
             <div id="mobile-menu" class="mobile-menu md:hidden bg-white/90 rounded-xl shadow-lg mt-2 p-4">
-                <a href="index.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Accueil</a>
-                <div class="relative">
-                    <button onclick="toggleSubMenu('paint-submenu')" class="w-full flex justify-between items-center px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">
-                        Nos peintures <i class="fas fa-chevron-down text-xs"></i>
-                    </button>
-                    <div id="paint-submenu" class="hidden pl-4">
-                        <a href="intérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Intérieures</a>
-                        <a href="extérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Extérieures</a>
-                        <a href="spéciale.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Peintures Spéciales</a>
-                    </div>
-                </div>
-                <a href="index.html#nos-realisations" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Réalisations</a>
-                <a href="index.html#a-propos" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">À propos</a>
-                <a href="inspiration.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Conseils & inspiration</a>
-                <a href="contact.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-[#e3342f] hover:bg-yellow-100 transition">Contact</a>
-                <a href="devenir distributeur.html" class="block px-4 py-2 rounded-full font-bold bg-[#FFD700] text-[#e3342f] mt-2 shadow hover:bg-[#e3342f] hover:text-white transition">Devenir distributeur</a>
+                <a href="index.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-red-600 hover:bg-yellow-100 transition">Accueil</a>
+                <a href="intérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-red-600 hover:bg-yellow-100 transition">Peintures Intérieures</a>
+                <a href="extérieur.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-red-600 hover:bg-yellow-100 transition">Peintures Extérieures</a>
+                <a href="contact.html" class="block px-4 py-2 rounded-full font-semibold text-gray-700 hover:text-red-600 hover:bg-yellow-100 transition">Contact</a>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <section class="text-center mb-16" data-aos="fade-up">
+        <section class="text-center mb-16">
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Découvrez nos peintures extérieures</h1>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">Protégez et embellissez vos surfaces extérieures avec nos produits haute qualité.</p>
         </section>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <!-- Peinture Façades -->
-            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <div class="placeholder-image">
-                        <i class="fas fa-paint-roller text-6xl"></i>
-                    </div>
+                    <i class="fas fa-paint-roller placeholder-icon"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures façades</h3>
                     <p class="text-gray-600 mb-4 leading-relaxed">La peinture façade protège durablement vos murs extérieurs tout en leur offrant une finition esthétique résistante aux intempéries et aux UV.</p>
-                    <a href="#" data-product="Peintures façades" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg">
+                    <button data-product="Peintures façades" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
                         <i class="fas fa-shopping-cart mr-2"></i> Commander
-                    </a>
+                    </button>
                 </div>
             </div>
 
             <!-- Peinture Balcon/Terrasse -->
-            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <div class="placeholder-image">
-                        <i class="fas fa-home text-6xl"></i>
-                    </div>
+                    <i class="fas fa-home placeholder-icon"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures balcon/terrasse</h3>
                     <p class="text-gray-600 mb-4 leading-relaxed">Transformez votre balcon ou terrasse en un espace élégant et durable grâce à une peinture haute performance qui résiste aux intempéries, aux UV et à l'humidité.</p>
-                    <a href="#" data-product="Peintures balcon/terrasse" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg">
+                    <button data-product="Peintures balcon/terrasse" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
                         <i class="fas fa-shopping-cart mr-2"></i> Commander
-                    </a>
+                    </button>
                 </div>
             </div>
 
             <!-- Peinture Anti-Humidité -->
-            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <div class="placeholder-image">
-                        <i class="fas fa-shield-alt text-6xl"></i>
-                    </div>
+                    <i class="fas fa-shield-alt placeholder-icon"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures anti-humidité</h3>
                     <p class="text-gray-600 mb-4 leading-relaxed">Elle s'applique comme une peinture classique, en intérieur ou extérieur, et peut servir de sous-couche ou de finition décorative, selon le produit choisi.</p>
-                    <a href="#" data-product="Peintures anti-humidité" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg">
+                    <button data-product="Peintures anti-humidité" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
                         <i class="fas fa-shopping-cart mr-2"></i> Commander
-                    </a>
+                    </button>
                 </div>
             </div>
 
             <!-- Peinture Protection Bois -->
-            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+            <div class="category-card bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="image-container">
-                    <div class="placeholder-image">
-                        <i class="fas fa-tree text-6xl"></i>
-                    </div>
+                    <i class="fas fa-tree placeholder-icon"></i>
                 </div>
                 <div class="p-6">
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Peintures protection bois</h3>
                     <p class="text-gray-600 mb-4 leading-relaxed">Peintures de conservation : anti-humidité, isolantes, etc. Protégez et embellissez vos structures en bois extérieures.</p>
-                    <a href="#" data-product="Peintures protection bois" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg">
+                    <button data-product="Peintures protection bois" class="order-button inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
                         <i class="fas fa-shopping-cart mr-2"></i> Commander
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -236,7 +205,7 @@
 
     <!-- Modal de commande -->
     <div id="order-choice-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full relative" data-aos="zoom-in">
+        <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full relative">
             <button id="close-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors">
                 <i class="fas fa-times text-2xl"></i>
             </button>
@@ -288,12 +257,12 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center mb-4 gap-3">
-                        <div class="w-14 h-14 bg-white border-4 border-[#FFD700] flex items-center justify-center rounded-full shadow-lg">
-                            <i class="fas fa-paint-brush text-2xl text-[#e3342f]"></i>
+                        <div class="w-14 h-14 bg-white border-4 border-yellow-400 flex items-center justify-center rounded-full shadow-lg">
+                            <i class="fas fa-paint-brush text-2xl text-red-600"></i>
                         </div>
-                        <span class="flex flex-row items-end leading-tight">
-                            <span class="text-2xl font-extrabold text-white tracking-tight mr-2">Idéale</span>
-                            <span class="text-lg font-bold text-[#e3342f] tracking-wide">Peinture</span>
+                        <span class="flex flex-col leading-tight">
+                            <span class="text-2xl font-extrabold text-white">Idéale</span>
+                            <span class="text-lg font-bold text-red-600">Peinture</span>
                         </span>
                     </div>
                     <p class="text-gray-400 mb-4">Votre spécialiste en peintures intérieures et extérieures depuis 2019.</p>
@@ -303,9 +272,6 @@
                         </a>
                         <a href="#" class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition">
                             <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition">
-                            <i class="fab fa-tiktok"></i>
                         </a>
                         <a href="#" class="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-700 transition">
                             <i class="fab fa-instagram"></i>
@@ -326,7 +292,7 @@
                     <h3 class="text-lg font-bold mb-4">Nos services</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Conseil couleur</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Devis</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Devis gratuit</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Livraison</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Application pro</a></li>
                     </ul>
@@ -337,7 +303,7 @@
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition">À propos</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Nos réalisations</a></li>
-                        <li><a href="inspiration.html" class="text-gray-400 hover:text-white transition">Conseils & inspiration</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
                         <li><a href="devenir distributeur.html" class="text-gray-400 hover:text-white transition">Devenir distributeur</a></li>
                     </ul>
                 </div>
@@ -363,7 +329,7 @@
                 </button>
             </div>
             
-            <div id="chat-messages" class="p-4 h-64 overflow-y-auto">
+            <div id="chat-messages" class="p-4 h-64 overflow-y-auto bg-gray-50">
                 <div class="mb-4">
                     <div class="bg-blue-100 text-gray-800 rounded-lg p-3 max-w-xs">
                         <p>Bonjour ! Partagez votre expérience avec nos services.</p>
@@ -371,10 +337,10 @@
                 </div>
             </div>
             
-            <div class="border-t p-4">
+            <div class="border-t p-4 bg-white">
                 <div class="flex">
-                    <input type="text" id="chat-input" placeholder="Tapez votre message..." class="flex-grow px-4 py-2 border rounded-l-md focus:outline-none">
-                    <button id="send-message" class="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700">
+                    <input type="text" id="chat-input" placeholder="Tapez votre message..." class="flex-grow px-4 py-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button id="send-message" class="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700 transition">
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </div>
@@ -382,21 +348,19 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialiser AOS
         AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 
         // Menu mobile
         const mobileMenuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('open');
-        });
-
-        function toggleSubMenu(id) {
-            const submenu = document.getElementById(id);
-            submenu.classList.toggle('hidden');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('open');
+            });
         }
 
         // Modal de commande
@@ -409,35 +373,41 @@
         const whatsappBtn = document.getElementById('modal-whatsapp-button');
         let currentProduct = '';
 
-        document.querySelectorAll('.order-button').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.order-button').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 currentProduct = btn.getAttribute('data-product');
                 document.getElementById('form-product-name').value = currentProduct;
                 modal.classList.remove('hidden');
                 
-                const whatsappMsg = encodeURIComponent(`Bonjour ! Je souhaite commander : ${currentProduct}`);
-                whatsappBtn.href = `https://wa.me/22890792752?text=${whatsappMsg}`;
+                const whatsappMsg = encodeURIComponent('Bonjour ! Je souhaite commander : ' + currentProduct);
+                whatsappBtn.href = 'https://wa.me/22890792752?text=' + whatsappMsg;
             });
         });
 
-        closeBtn.addEventListener('click', () => {
-            modal.classList.add('hidden');
-            choiceView.classList.remove('hidden');
-            emailFormView.classList.add('hidden');
-        });
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                modal.classList.add('hidden');
+                choiceView.classList.remove('hidden');
+                emailFormView.classList.add('hidden');
+            });
+        }
 
-        emailChoiceBtn.addEventListener('click', () => {
-            choiceView.classList.add('hidden');
-            emailFormView.classList.remove('hidden');
-        });
+        if (emailChoiceBtn) {
+            emailChoiceBtn.addEventListener('click', function() {
+                choiceView.classList.add('hidden');
+                emailFormView.classList.remove('hidden');
+            });
+        }
 
-        backBtn.addEventListener('click', () => {
-            emailFormView.classList.add('hidden');
-            choiceView.classList.remove('hidden');
-        });
+        if (backBtn) {
+            backBtn.addEventListener('click', function() {
+                emailFormView.classList.add('hidden');
+                choiceView.classList.remove('hidden');
+            });
+        }
 
-        modal.addEventListener('click', (e) => {
+        modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 modal.classList.add('hidden');
                 choiceView.classList.remove('hidden');
@@ -453,26 +423,30 @@
         const chatInput = document.getElementById('chat-input');
         const sendMsgBtn = document.getElementById('send-message');
 
-        chatBtn.addEventListener('click', () => {
-            chatWindow.classList.toggle('hidden');
-            if (!chatWindow.classList.contains('hidden')) {
-                chatInput.focus();
-            }
-        });
+        if (chatBtn) {
+            chatBtn.addEventListener('click', function() {
+                chatWindow.classList.toggle('hidden');
+                if (!chatWindow.classList.contains('hidden')) {
+                    chatInput.focus();
+                }
+            });
+        }
 
-        closeChat.addEventListener('click', () => {
-            chatWindow.classList.add('hidden');
-        });
+        if (closeChat) {
+            closeChat.addEventListener('click', function() {
+                chatWindow.classList.add('hidden');
+            });
+        }
 
         function addMessage(text, sender) {
             const msgDiv = document.createElement('div');
-            msgDiv.className = `mb-4 ${sender === 'user' ? 'text-right' : ''}`;
+            msgDiv.className = 'mb-4 ' + (sender === 'user' ? 'text-right' : '');
             
             const bubbleClass = sender === 'user' 
                 ? 'bg-blue-600 text-white rounded-lg p-3 max-w-xs ml-auto inline-block' 
                 : 'bg-gray-100 text-gray-800 rounded-lg p-3 max-w-xs inline-block';
             
-            msgDiv.innerHTML = `<div class="${bubbleClass}"><p>${text}</p></div>`;
+            msgDiv.innerHTML = '<div class="' + bubbleClass + '"><p>' + text + '</p></div>';
             chatMessages.appendChild(msgDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -484,7 +458,7 @@
             addMessage(message, 'user');
             chatInput.value = '';
             
-            setTimeout(() => {
+            setTimeout(function() {
                 const responses = [
                     "Merci pour votre commentaire ! Nous prenons en compte chaque retour.",
                     "Votre avis est précieux pour nous. L'équipe Idéale Peinture vous remercie !",
@@ -496,24 +470,33 @@
             }, 1000);
         }
 
-        sendMsgBtn.addEventListener('click', sendMessage);
+        if (sendMsgBtn) {
+            sendMsgBtn.addEventListener('click', sendMessage);
+        }
         
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
+        if (chatInput) {
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        }
 
-        document.addEventListener('click', (e) => {
-            if (!chatWindow.contains(e.target) && !chatBtn.contains(e.target)) {
+        document.addEventListener('click', function(e) {
+            if (chatWindow && chatBtn && !chatWindow.contains(e.target) && !chatBtn.contains(e.target)) {
                 chatWindow.classList.add('hidden');
             }
         });
 
         // Animation du bouton chat
-        setTimeout(() => {
-            chatBtn.classList.add('animate-bounce');
-            setTimeout(() => {
-                chatBtn.classList.remove('animate-bounce');
-            }, 2000);
+        setTimeout(function() {
+            if (chatBtn) {
+                chatBtn.classList.add('animate-bounce');
+                setTimeout(function() {
+                    chatBtn.classList.remove('animate-bounce');
+                }, 2000);
+            }
         }, 3000);
+    </script>
+</body>
+</html>
