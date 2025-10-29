@@ -28,30 +28,43 @@
       z-index: 1000;
       align-items: center;
       justify-content: center;
+      padding: 1rem;
     }
 
     .modal-content {
       background: white;
       border-radius: 1rem;
-      padding: 2rem;
+      padding: 1.5rem;
       max-width: 500px;
-      width: 90%;
+      width: 100%;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
       position: relative;
-      max-height: 90vh;
+      max-height: 85vh;
       overflow-y: auto;
+    }
+
+    @media (min-width: 640px) {
+      .modal-content {
+        padding: 2rem;
+        max-height: 90vh;
+      }
     }
 
     .modal-close {
       position: absolute;
-      top: 1rem;
-      right: 1rem;
+      top: 0.75rem;
+      right: 0.75rem;
       background: none;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       cursor: pointer;
       color: #6b7280;
       z-index: 10;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .modal-close:hover {
@@ -83,6 +96,26 @@
 
     #chat-messages::-webkit-scrollbar-thumb:hover {
       background: #a8a8a8;
+    }
+
+    /* Responsivité améliorée */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.75rem !important;
+      }
+      
+      h2 {
+        font-size: 1.5rem !important;
+      }
+      
+      h3 {
+        font-size: 1.25rem !important;
+      }
+
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
     }
   </style>
 </head>
