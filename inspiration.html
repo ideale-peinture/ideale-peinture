@@ -190,7 +190,399 @@
                 </li>
             </ul>
         </div>
-    </section>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs Idéale Peinture - Excellence Locale</title>
+    <style>
+        /* Insérez le code CSS de la section 2 ici */
+        :root {
+            --color-primary: #e64c3c;
+            --color-secondary: #007bff;
+            --color-text: #333;
+            --color-background: #f8f8f8;
+            --color-light: #fff;
+            --color-grey-light: #f2f2f2;
+            --color-highlight: #ffcc00; /* Nouvelle couleur pour JS highlight */
+            --color-exterior: #00a86b; /* Couleur pour Extérieur */
+            --color-interior: #5a5acd; /* Couleur pour Intérieur */
+        }
+
+        .blog-section {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: var(--color-light);
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .blog-header h1 {
+            color: var(--color-primary);
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        .blog-header p {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .blog-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .article-card {
+            background-color: var(--color-light);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .article-body {
+            padding: 25px;
+        }
+
+        .article-body h2 {
+            color: var(--color-text);
+            font-size: 1.6em;
+            margin-top: 0;
+            border-bottom: 3px solid var(--color-primary);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .article-body h3 {
+            color: var(--color-primary);
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        .article-body p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .article-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .article-body ul li {
+            padding-left: 1.5em;
+            text-indent: -1.5em;
+            margin-bottom: 10px;
+            color: #555;
+            transition: color 0.3s;
+        }
+        
+        .article-body ul li::before {
+            content: "\2713"; /* Coche */
+            color: var(--color-primary);
+            font-weight: bold;
+            display: inline-block; 
+            width: 1.5em;
+            margin-left: -1.5em;
+        }
+        
+        /* Styles pour l'outil d'estimation */
+        .estimation-tool {
+            margin-top: 50px;
+            padding: 40px;
+            background-color: var(--color-background);
+            border-radius: 10px;
+            border-top: 6px solid var(--color-primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .estimation-tool h2 {
+            text-align: center;
+            color: var(--color-text);
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        
+        /* Contrôles JS */
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .filter-controls button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        #filter-all {
+            background-color: var(--color-grey-light);
+            color: var(--color-text);
+        }
+        
+        #filter-all.active, #filter-all:hover {
+            background-color: #ccc;
+        }
+        
+        #filter-interior {
+            background-color: var(--color-interior);
+            color: var(--color-light);
+        }
+        
+        #filter-exterior {
+            background-color: var(--color-exterior);
+            color: var(--color-light);
+        }
+        
+        .filter-controls button:hover {
+            transform: scale(1.05);
+        }
+        
+        .filter-controls button.active {
+            box-shadow: 0 0 0 3px var(--color-primary);
+        }
+
+        /* Tableau */
+        .estimation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .estimation-table th, .estimation-table td {
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .estimation-table thead th {
+            background-color: var(--color-grey-light);
+            color: var(--color-text);
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .estimation-table tbody tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        
+        /* Style JS pour la mise en évidence */
+        .estimation-table tbody tr.highlight {
+            background-color: #fffae6 !important; /* Jaune très clair */
+            border-left: 5px solid var(--color-highlight);
+            font-weight: bold;
+        }
+
+
+        /* Rendre le tableau responsive */
+        @media (max-width: 768px) {
+            .blog-content {
+                grid-template-columns: 1fr;
+            }
+            .estimation-tool {
+                overflow-x: auto;
+            }
+            .estimation-table {
+                min-width: 800px; /* Force le tableau à défiler sur les petits écrans */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="blog-section">
+    <header class="blog-header">
+        <h1>&#x1F3A8; Blogs Idéale Peinture : L'Excellence Locale au Service de Vos Projets</h1>
+        <p>Bienvenue dans l'espace d'inspiration et d'expertise d'Idéale Peinture. Découvrez nos conseils, nos engagements et comment nos produits sont conçus pour sublimer et protéger vos espaces.</p>
+    </header>
+
+    <div class="blog-content">
+        <article class="article-card">
+            <img src="764683.jpg" alt="Façades colorées de bâtiments peints par Idéale Peinture (orange, vert, beige)" class="article-image">
+            <div class="article-body">
+                <h2>&#x1F3D7; Quand l’excellence locale redéfinit les standards de qualité</h2>
+                <p>Idéale Peinture s’impose comme une marque qui allie innovation, performance et fierté locale. Bien plus qu’un fournisseur, nous sommes un partenaire de confiance pour une finition durable, esthétique et respectueuse de l’environnement.</p>
+
+                <h3>**🌍 Une marque 100 % locale**</h3>
+                <p>Nos produits sont formulés et testés pour répondre aux conditions réelles de nos régions tropicales : chaleur intense, humidité élevée, poussière et intempéries. Idéale Peinture résiste et protège.</p>
+
+                <h3>**🧪 L’innovation au service de la durabilité**</h3>
+                <p>Nous intégrons des technologies anti-UV, anti-humidité et anti-salissures. Nos formules sont faiblement odorantes et à faible émission de COV, garantissant un confort optimal.</p>
+            </div>
+        </article>
+
+        <article class="article-card">
+            <img src="764684.jpg" alt="Composition de produits Idéale Peinture, pinceaux, spatule et échantillons de couleurs" class="article-image">
+            <div class="article-body">
+                <h2>✨ L’art de bâtir la confiance, une couleur à la fois</h2>
+                <p>La qualité d’une peinture détermine la valeur et la personnalité d’un espace. Idéale Peinture s’est donnée pour mission de transformer chaque mur en un symbole de durabilité, de modernité et d’élégance.</p>
+
+                <h3>**Pourquoi choisir Idéale Peinture ?**</h3>
+                <ul>
+                    <li>Qualité constante, testée et éprouvée localement.</li>
+                    <li>Équipe réactive et à l'écoute.</li>
+                    <li>Produits innovants et respectueux de l'environnement.</li>
+                    <li>Accompagnement technique complet.</li>
+                    <li>Fierté nationale : une marque 100 % togolaise.</li>
+                </ul>
+                <p>Idéale Peinture ne se contente pas de vendre des produits. Elle crée des expériences et apporte de la valeur durable à chaque projet.</p>
+            </div>
+        </article>
+    </div>
+
+    <div class="estimation-tool">
+        <h2>&#x1F9EE; Outil Pratique : Estimez la Quantité Nécessaire</h2>
+        <p style="text-align: center; color: #555;">Cliquez sur un bouton pour mettre en évidence les produits selon leur application (Intérieur ou Extérieur).</p>
+        
+        <div class="filter-controls">
+            <button id="filter-all" class="active" data-filter="All">Tous les produits</button>
+            <button id="filter-interior" data-filter="Intérieur">Intérieur</button>
+            <button id="filter-exterior" data-filter="Extérieur">Extérieur</button>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="estimation-table" id="estimationTable">
+                <thead>
+                    <tr>
+                        <th>Produit</th>
+                        <th>Type de peinture</th>
+                        <th>Rendement (m²/L)</th>
+                        <th>Surface à peindre (m²)</th>
+                        <th>Nombre de couches</th>
+                        <th>Quantité nécessaire (L)</th>
+                        <th>Nombre de pots (20 L)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-type="Intérieur/Extérieur">
+                        <td>Peinture Acrylique Satinée</td>
+                        <td>Intérieur/Extérieur</td>
+                        <td>10</td>
+                        <td>16</td>
+                        <td>2</td>
+                        <td>3,2</td>
+                        <td>1</td>
+                    </tr>
+                    <tr data-type="Intérieur">
+                        <td>Peinture Mat Intérieur</td>
+                        <td>Intérieur</td>
+                        <td>10</td>
+                        <td>50</td>
+                        <td>2</td>
+                        <td>10</td>
+                        <td>1</td>
+                    </tr>
+                    <tr data-type="Extérieur">
+                        <td>Peinture Brillante Extérieur</td>
+                        <td>Extérieur</td>
+                        <td>10</td>
+                        <td>100</td>
+                        <td>2</td>
+                        <td>20</td>
+                        <td>1</td>
+                    </tr>
+                    <tr data-type="Intérieur">
+                        <td>Enduit Lisse Intérieur</td>
+                        <td>Intérieur</td>
+                        <td>8</td>
+                        <td>40</td>
+                        <td>1</td>
+                        <td>5</td>
+                        <td>1</td>
+                    </tr>
+                    <tr data-type="Intérieur/Extérieur">
+                        <td>Gresse Haute Qualité</td>
+                        <td>Intérieur/Extérieur</td>
+                        <td>6</td>
+                        <td>60</td>
+                        <td>2</td>
+                        <td>20</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Insérez le code JavaScript de la section 3 ici
+    document.addEventListener('DOMContentLoaded', function() {
+        const tableBody = document.querySelector('#estimationTable tbody');
+        const filterButtons = document.querySelectorAll('.filter-controls button');
+
+        function filterProducts(filterType) {
+            // Désactiver la classe 'active' sur tous les boutons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Activer la classe 'active' sur le bouton cliqué
+            document.querySelector(`[data-filter="${filterType}"]`).classList.add('active');
+
+            const rows = tableBody.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                const productType = row.getAttribute('data-type');
+                
+                // Retirer la classe highlight par défaut
+                row.classList.remove('highlight'); 
+
+                if (filterType === 'All') {
+                    // Si 'All', afficher toutes les lignes
+                    row.style.display = ''; 
+                } else if (productType.includes(filterType)) {
+                    // Si le filtre correspond au type (ou est dans Intérieur/Extérieur), afficher
+                    row.style.display = '';
+                    row.classList.add('highlight'); // Mettre en évidence les correspondances
+                } else {
+                    // Sinon, cacher la ligne
+                    row.style.display = 'none'; 
+                }
+            });
+        }
+
+        // Événement d'écoute pour les boutons de filtre
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filterValue = this.getAttribute('data-filter');
+                filterProducts(filterValue);
+            });
+        });
+
+        // Initialisation : afficher tous les produits au chargement
+        filterProducts('All'); 
+    });
+</script>
+
 
     <!-- CTA Section -->
     <section id="cta-final" class="py-16 bg-blue-600 text-white text-center px-4">
